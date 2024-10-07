@@ -384,7 +384,7 @@ watch(
                         <li class="nav-item list-group-item border-0 p-0">
                           <a
                             class="dropdown-item py-2 ps-3 border-radius-md"
-                            href="/pages/landing-pages/contact-us"
+                            @click.prevent="$router.push({ name: 'contactus' })"
                           >
                             <h6
                               class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
@@ -447,7 +447,10 @@ watch(
                   </a>
                 </li>
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md"
+                    @click.prevent="$router.push({ name: 'contactus' })"
+                  >
                     <h6
                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                     >
