@@ -16,7 +16,7 @@ defineProps({
   },
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   description: {
     type: String,
@@ -41,6 +41,13 @@ defineProps({
       return ["vertical", "horizontal"].includes(value);
     },
   },
+  dividerSize: {
+    type: String,
+    default: "100px",
+    validator(value) {
+      return /^(\d+(\.\d+)?(px|em|rem|%)?)$/.test(value);
+    },
+  },
 });
 </script>
 <template>
@@ -55,5 +62,13 @@ defineProps({
       {{ description }}
     </p>
   </div>
-  <hr :class="`${divider ? divider : ''} dark`" />
+  <hr
+    :class="`${divider ? divider : ''} dark`"
+    :style="{
+      height: dividerSize,
+      // width: dividerSize,
+      borderWidth: divider === 'horizontal' ? dividerSize : '0',
+      borderStyle: 'solid',
+    }"
+  />
 </template>

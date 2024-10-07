@@ -8,20 +8,12 @@ import Header from "../../../examples/Header.vue";
 // import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
 // import logo from "@/assets/img/stellar-logo-light.svg";
-// import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
+import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
 import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
-import AboutCounter from "./Sections/AboutCounter.vue";
-import AboutStory from "./Sections/AboutStory.vue";
-import AboutValues from "./Sections/AboutValues.vue";
-import AboutClient from "./Sections/AboutClient.vue";
 
-import headerImageOne from "@/assets/img/about-header-1.svg";
-import headerImageTwo from "@/assets/img/about-header-2.svg";
-import headerImageThree from "@/assets/img/about-header-3.svg";
-
-// import SolutionsUnique from "./SolutionsUnique.vue";
-// import SolutionsIndustry from "./SolutionsIndustry.vue";
-// import SolutionsBenefit from "./SolutionsBenefit.vue";
+import SolutionsUnique from "../Solutions/SolutionsUnique.vue";
+import SolutionsIndustry from "../Solutions/SolutionsIndustry.vue";
+import SolutionsBenefit from "../Solutions/SolutionsBenefit.vue";
 
 //images
 import imageHeader from "@/assets/img/background-header-light.svg";
@@ -62,69 +54,30 @@ onUnmounted(() => {
               class="text-dark pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
-              We're building software for the business solutions
+              Full-range of services
             </h1>
-            <p class="lead mt-3" :style="{ fontWeight: '200' }">
-              Let us help you transform your challenges into opportunities with
-              innovative technology that meets the demands of today and
-              tomorrow.
+            <p class="lead px-5 mt-3" :style="{ fontWeight: '200' }">
+              Our innovative solutions are the rocket fuel your business needs
+              to blast off Imagine automating tedious tasks
             </p>
-            <!-- <a
+            <a
               href="/"
               class="btn btn-sm mb-0 bg-info px-5 py-3 mt-4 text-white"
               >Explore</a
-            > -->
+            >
           </div>
         </div>
-        <div class="row mt-7">
-          <div class="col-4">
-            <div
-              class="card blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageOne});background-size: cover; background-position: center;`"
-            ></div>
-          </div>
-          <div class="col-4 mt-7">
-            <div
-              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageTwo});background-size: cover; background-position: center;`"
-            ></div>
-          </div>
-          <div class="col-4">
-            <div
-              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageThree});background-size: cover; background-position: center;`"
-            ></div>
-          </div>
-        </div>
-        <AboutClient class="mt-0 mb-0" />
+        <PresentationClient class="mt-0 mb-0" />
       </div>
     </div>
   </Header>
   <div class="container-fluid bg-white mt-n6">
-    <AboutStory class="mt-6 mb-4 px-7" />
+    <SolutionsUnique class="mt-6 mb-4" />
     <hr :class="`horizontal dark`" />
-    <AboutCounter class="mt-5 px-7" />
-    <AboutValues class="mb-4" />
+    <SolutionsIndustry class="mt-6 mb-4" />
     <hr :class="`horizontal dark`" />
-
+    <SolutionsBenefit class="mb-4" />
+    <hr :class="`horizontal dark`" />
     <PresentationFaq class="mb-4" />
   </div>
 
