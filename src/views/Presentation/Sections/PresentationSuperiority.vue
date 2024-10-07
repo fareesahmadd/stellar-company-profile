@@ -73,7 +73,7 @@
       <div class="col-md-6 p-0">
         <div
           class="card mt-4"
-          :style="`background-image: url(${vueMkHeader})`"
+          :style="`background-image: url(${vueMkHeader});background-size: cover; background-position: left;`"
           style="
             border-radius: 10px;
             overflow: hidden;
@@ -87,5 +87,5 @@
 </template>
 
 <script setup>
-import vueMkHeader from "@/assets/img/background-home.png";
+import vueMkHeader from "@/assets/img/superiority-image.svg";
 </script>

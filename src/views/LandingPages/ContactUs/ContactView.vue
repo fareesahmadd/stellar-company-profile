@@ -26,13 +26,11 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="container-fluid position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <DefaultNavbar :sticky="true" />
-      </div>
-    </div>
-  </div>
+  <DefaultNavbar
+    :sticky="true"
+    class="position-sticky z-index-sticky top-0"
+    style="border-radius: 0"
+  />
   <Header>
     <div class="page-header min-vh-75" loading="lazy">
       <div class="container">
@@ -233,9 +231,7 @@ onMounted(() => {
                 Need something specific? Let’s craft an ERP solution that
                 matches your business perfectly. Ready to customize? Let's talk!
               </p>
-              <a
-                href="/"
-                class="btn btn mb-0 bg-light text-info"
+              <a href="/" class="btn btn mb-0 bg-light text-info"
                 >Book a Meeting</a
               >
             </div>
