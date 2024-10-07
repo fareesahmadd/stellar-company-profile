@@ -2,103 +2,160 @@
 import { onMounted, onUnmounted } from "vue";
 
 //example components
-import DefaultNavbar from "../../../examples/navbars/NavbarDefault.vue";
-import DefaultFooter from "../../../examples/footers/FooterDefault.vue";
+import NavbarDefault from "@/examples/navbars/NavbarDefault.vue";
+import DefaultFooter from "@/examples/footers/FooterDefault.vue";
+import Header from "../../../examples/Header.vue";
+// import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
-//image
-import bg0 from "@/assets/img/bg9.jpg";
+// import logo from "@/assets/img/stellar-logo-light.svg";
+import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
+import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
+import AboutStory from "./Sections/AboutStory.vue";
+import AboutValues from "./Sections/AboutValues.vue";
+import AboutClient from "./Sections/AboutClient.vue";
 
-//dep
-import Typed from "typed.js";
+import headerImageOne from "@/assets/img/about-header-1.svg";
+import headerImageTwo from "@/assets/img/about-header-2.svg";
+import headerImageThree from "@/assets/img/about-header-3.svg";
 
-//sections
-import Information from "./Sections/AboutInformation.vue";
-import AboutTeam from "./Sections/AboutTeam.vue";
-import Featuring from "./Sections/AboutFeaturing.vue";
-import Newsletter from "./Sections/AboutNewsletter.vue";
+// import SolutionsUnique from "./SolutionsUnique.vue";
+// import SolutionsIndustry from "./SolutionsIndustry.vue";
+// import SolutionsBenefit from "./SolutionsBenefit.vue";
 
-const body = document.getElementsByTagName("body")[0];
+//images
+import imageHeader from "@/assets/img/background-header-light.svg";
+import bottomVue from "@/assets/img/bottom-background.svg";
+
 //hooks
+const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
-  body.classList.add("about-us");
+  body.classList.add("presentation-page");
   body.classList.add("bg-gray-200");
-
-  if (document.getElementById("typed")) {
-    // eslint-disable-next-line no-unused-vars
-    var typed = new Typed("#typed", {
-      stringsElement: "#typed-strings",
-      typeSpeed: 90,
-      backSpeed: 90,
-      backDelay: 200,
-      startDelay: 500,
-      loop: true,
-    });
-  }
 });
-
 onUnmounted(() => {
-  body.classList.remove("about-us");
+  body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
+// import { useRoute } from "vue-router";
+// const currentRouteName = computed(() => {
+//   return useRoute().name;
+// });
 </script>
+
 <template>
-  <DefaultNavbar
-    :action="{
-      route: 'javascript:;',
-      label: 'Buy Now',
-      color: 'btn-white',
-    }"
-    transparent
+  <NavbarDefault
+    :sticky="true"
+    class="position-sticky z-index-sticky top-0"
+    style="border-radius: 0"
   />
-  <header class="bg-gradient-dark">
+  <Header>
     <div
-      class="page-header min-vh-75"
-      :style="{ backgroundImage: `url(${bg0})` }"
+      class="page-header min-vh-100"
+      :style="`background-image: url(${imageHeader});`"
+      loading="lazy"
     >
-      <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1 class="text-white">
-              Work with an amazing <span class="text-white" id="typed"></span>
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto position-relative">
+            <h1
+              class="text-dark pt-6 me-2"
+              :style="{ display: 'inline-block ' }"
+            >
+              We're building software for the business solutions
             </h1>
-            <div id="typed-strings">
-              <h1>team</h1>
-              <h1>design</h1>
-              <h1>tool</h1>
-            </div>
-            <p class="lead mb-4 text-white opacity-8">
-              We’re constantly trying to express ourselves and actualize our
-              dreams. If you have the opportunity to play this game
+            <p class="lead mt-3" :style="{ fontWeight: '200' }">
+              Let us help you transform your challenges into opportunities with
+              innovative technology that meets the demands of today and
+              tomorrow.
             </p>
-            <button type="submit" class="btn bg-white text-dark">
-              Create Account
-            </button>
-            <h6 class="text-white mb-2 mt-5">Find us on</h6>
-            <div class="d-flex justify-content-center">
-              <a href="javascript:;"
-                ><i class="fab fa-facebook text-lg text-white me-4"></i
-              ></a>
-              <a href="javascript:;"
-                ><i class="fab fa-instagram text-lg text-white me-4"></i
-              ></a>
-              <a href="javascript:;"
-                ><i class="fab fa-twitter text-lg text-white me-4"></i
-              ></a>
-              <a href="javascript:;"
-                ><i class="fab fa-google-plus text-lg text-white"></i
-              ></a>
+            <!-- <a
+              href="/"
+              class="btn btn-sm mb-0 bg-info px-5 py-3 mt-4 text-white"
+              >Explore</a
+            > -->
+          </div>
+        </div>
+        <div class="row mt-7">
+          <div class="col-4">
+            <div
+              class="card blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+              style="
+                border-radius: 10px;
+                overflow: hidden;
+                width: 342px;
+                height: 440px;
+              "
+              :style="`background-image: url(${headerImageOne});background-size: cover; background-position: center;`"
+            ></div>
+          </div>
+          <div class="col-4 mt-7">
+            <div
+              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+              style="
+                border-radius: 10px;
+                overflow: hidden;
+                width: 342px;
+                height: 440px;
+              "
+              :style="`background-image: url(${headerImageTwo});background-size: cover; background-position: center;`"
+            ></div>
+          </div>
+          <div class="col-4">
+            <div
+              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+              style="
+                border-radius: 10px;
+                overflow: hidden;
+                width: 342px;
+                height: 440px;
+              "
+              :style="`background-image: url(${headerImageThree});background-size: cover; background-position: center;`"
+            ></div>
+          </div>
+        </div>
+        <AboutClient class="mt-0 mb-0" />
+      </div>
+    </div>
+  </Header>
+  <div class="container-fluid bg-white mt-n6">
+    <AboutStory class="mt-6 mb-4 px-7" />
+    <hr :class="`horizontal dark`" />
+    <AboutValues class="mt-6 mb-4" />
+    <hr :class="`horizontal dark`" />
+
+    <PresentationFaq class="mb-4" />
+  </div>
+
+  <Header class="mt-n4">
+    <div
+      class="page-header min-vh-50"
+      :style="`background-image: url(${bottomVue})`"
+      loading="lazy"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2
+              class="font-weight-bold text-white"
+              style="margin-left: 50px; margin-right: 100px"
+            >
+              Custom ERP, tailored for Your business
+            </h2>
+          </div>
+          <div class="col-md-6">
+            <div class="container">
+              <p class="text-white text-lg mt-n2">
+                Need something specific? Let’s craft an ERP solution that
+                matches your business perfectly. Ready to customize? Let's talk!
+              </p>
+              <a href="/" class="btn btn mb-0 bg-light text-info"
+                >Book a Meeting</a
+              >
             </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
-  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <Information />
-    <AboutTeam />
-    <Featuring />
-    <Newsletter />
-  </div>
+  </Header>
   <DefaultFooter />
 </template>

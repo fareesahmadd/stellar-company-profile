@@ -57,7 +57,7 @@ defineProps({
         items: [
           {
             name: "About",
-            href: "/",
+            href: "/pages/landing-pages/about-us",
           },
           {
             name: "Career",
@@ -95,10 +95,6 @@ defineProps({
             name: "FAQ",
             href: "/",
           },
-          // {
-          //   name: "affiliate program",
-          //   href: "https://www.creative-tim.com/affiliates/new",
-          // },
         ],
       },
     ],

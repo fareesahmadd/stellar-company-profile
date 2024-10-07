@@ -106,6 +106,28 @@
             </div>
           </div>
         </div>
+        <div class="text-center px-11 mt-7 mb-4">
+          <img
+            class="opacity-7"
+            src="@/assets/img/icon-caption-info.svg"
+            style="height: 35px; width: 35px"
+            alt="icon-caption"
+          />
+        </div>
+        <div class="text-center mb-5 px-11">
+          <p class="px-7">
+            Implementing Stellar Gelora's ERP software has been a game-changer
+            for our business. From day one, the team at Stellar Gelora worked
+            closely with us to customize the system to meet our specific needs.
+            The point of sales integration has streamlined our sales processes,
+            allowing us to manage our inventory more effectively and serve our
+            customers better.
+          </p>
+          <p>Naila Agung Sarasati</p>
+          <p class="mt-n3" style="font-weight: bold">
+            CEO & Co-Founder of Wanderloom Labs
+          </p>
+        </div>
       </div>
     </div>
   </section>

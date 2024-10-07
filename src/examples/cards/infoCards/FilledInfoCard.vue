@@ -44,7 +44,7 @@ defineProps({
   },
   action: {
     type: Object,
-    required: true,
+    required: false,
     label: {
       type: Object,
       required: true,
