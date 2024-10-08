@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 
-//example components
+// Example components
 import NavbarDefault from "@/examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 import Header from "../../../examples/Header.vue";
@@ -13,13 +13,14 @@ import ProductsOpinion from "./Components/ProductsOpinion.vue";
 import ProductsFeatures from "./Components/ProductsFeatures.vue";
 import ProductsSolutions from "./Components/ProductsSolutions.vue";
 import ProductsFooter from "./Components/ProductsFooter.vue";
+import ProductsNavbar from "./Components/ProductsNavbar.vue";
 
-//images
+// Images
 import imageHeader from "@/assets/img/background-header-light.svg";
 import bottomVue from "@/assets/img/bottom-background.svg";
 import vueMkHeader from "@/assets/img/superiority-image.svg";
 
-//hooks
+// Hooks
 const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
   body.classList.add("presentation-page");
@@ -29,16 +30,6 @@ onUnmounted(() => {
   body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
-const scrollToSection = (section) => {
-  const element = document.getElementById(section);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
-// import { useRoute } from "vue-router";
-// const currentRouteName = computed(() => {
-//   return useRoute().name;
-// });
 </script>
 
 <template>
@@ -46,55 +37,8 @@ const scrollToSection = (section) => {
     :sticky="true"
     class="position-sticky z-index-sticky top-0"
     style="border-radius: 0"
-  />
-  <!-- Penambahan Header dengan Menu -->
-  <Header>
-    <nav class="navbar navbar-expand justify-content-between bg-info">
-      <a class="navbar-brand text-white" href="#">POS</a>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="#overview"
-            @click="scrollToSection('overview')"
-            >Overview</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="#features"
-            @click="scrollToSection('features')"
-            >Features</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="#solutions"
-            @click="scrollToSection('solutions')"
-            >Solutions</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="#resources"
-            @click="scrollToSection('resources')"
-            >Resources</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="#faq"
-            @click="scrollToSection('faq')"
-            >FAQ</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </Header>
+  ></NavbarDefault>
+  <ProductsNavbar />
 
   <Header>
     <div
@@ -102,7 +46,7 @@ const scrollToSection = (section) => {
       :style="`background-image: url(${imageHeader});`"
       loading="lazy"
     >
-      <div class="container">
+      <div class="container" id="overview">
         <div class="row mt-6">
           <div class="col-lg-6">
             <h1
