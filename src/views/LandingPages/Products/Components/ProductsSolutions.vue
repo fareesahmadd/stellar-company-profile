@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div v-if="currentRouteName === 'products-pos'" class="container-fluid">
     <div class="row py-5">
       <div class="text-center mb-5 px-9">
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
@@ -110,8 +110,90 @@
       </div>
     </div>
   </div>
+
+  <div v-if="currentRouteName === 'products-bom'" class="container-fluid">
+    <div class="row py-5">
+      <div class="text-center mb-1 px-9">
+        <button class="btn btn-outline-info btn-sm mt-4" disabled>
+          Solutions
+        </button>
+        <h2 class="font-weight-bold px-10">We’re better. Here’s why...</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-none">
+            <div
+              class="card-body d-flex flex-column align-items-center justify-content-start"
+              style="text-align: center"
+            >
+              <img
+                src="@/assets/img/product-bom-solution-image-3.svg"
+                alt="Point of Sale"
+                class="mb-4 img-fluid"
+              />
+              <h5 class="card-title font-weight-bold" style="font-size: large">
+                Effortless Workflow Automation
+              </h5>
+              <p class="card-text text-muted" style="font-size: smaller">
+                Stellar automates repetitive tasks, streamlining operations and
+                freeing up your team to focus on strategic initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-none">
+            <div
+              class="card-body d-flex flex-column align-items-center justify-content-start"
+              style="text-align: center"
+            >
+              <img
+                src="@/assets/img/product-bom-solution-image-3.svg"
+                alt="Point of Sale"
+                class="mb-4 img-fluid"
+              />
+              <h5 class="card-title font-weight-bold" style="font-size: large">
+                Unified Data Management
+              </h5>
+              <p class="card-text text-muted" style="font-size: smaller">
+                Centralized approach reduces errors, enhances collaboration, and
+                provides real-time insights across your organization.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-none">
+            <div
+              class="card-body d-flex flex-column align-items-center justify-content-center"
+              style="text-align: center"
+            >
+              <img
+                src="@/assets/img/product-bom-solution-image-3.svg"
+                alt="Point of Sale"
+                class="mb-4 img-fluid"
+              />
+              <h5 class="card-title font-weight-bold" style="font-size: large">
+                Comprehensive HR Integration
+              </h5>
+              <p class="card-text text-muted" style="font-size: smaller">
+                From recruitment to payroll, our integrated solution simplifies
+                every management aspect, Improve accuracy, reduce
+                administrative.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import vueMkHeader from "@/assets/img/background-home.png";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+const currentRouteName = computed(() => {
+  return useRoute().name;
+});
 </script>

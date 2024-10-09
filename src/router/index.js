@@ -6,6 +6,7 @@ import SolutionsView from "../views/LandingPages/Solutions/SolutionsView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
 import ProductPosView from "../views/LandingPages/Products/ProductsPosView.vue";
+import ProductBomView from "../views/LandingPages/Products/ProductsBomView.vue";
 import PageHeaders from "../layouts/sections/page-sections/page-headers/HeadersView.vue";
 import PageFeatures from "../layouts/sections/page-sections/features/FeaturesView.vue";
 import NavigationNavbars from "../layouts/sections/navigation/navbars/NavbarsView.vue";
@@ -62,6 +63,11 @@ const router = createRouter({
       path: "/pages/landing-pages/product-pos",
       name: "products-pos",
       component: ProductPosView,
+    },
+    {
+      path: "/pages/landing-pages/product-bom",
+      name: "products-bom",
+      component: ProductBomView,
     },
     {
       path: "/sections/page-sections/page-headers",

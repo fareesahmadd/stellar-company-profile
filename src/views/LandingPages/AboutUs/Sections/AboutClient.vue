@@ -1,7 +1,10 @@
 <template>
   <div class="row py-6 text-center">
     <div class="col-12">
-      <p class="lead mt-2">Top leading companies trust us</p>
+      <p class="lead mt-2" v-if="!isNotAboutPage">
+        Top leading companies trust us
+      </p>
+      <p class="lead mt-2" v-if="isNotAboutPage">Trusted by industry leaders</p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="d-flex justify-content-center flex-wrap">
@@ -20,6 +23,7 @@ import sonyLogo from "@/assets/img/sony-logo-grey.svg";
 import fujifilm from "@/assets/img/fujifilm-logo-grey.svg";
 import sigma from "@/assets/img/sigma-logo-grey.svg";
 import canon from "@/assets/img/canon-logo-grey.svg";
+import { useRoute } from "vue-router";
 
 export default {
   data() {
@@ -31,6 +35,14 @@ export default {
         canon: canon,
       },
     };
+  },
+  computed: {
+    currentRouteName() {
+      return useRoute().name;
+    },
+    isNotAboutPage() {
+      return this.currentRouteName !== "about";
+    },
   },
 };
 </script>

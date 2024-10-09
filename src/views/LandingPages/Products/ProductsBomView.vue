@@ -1,25 +1,51 @@
+<style>
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff; /* Ganti dengan warna hover yang diinginkan */
+}
+
+.nav-link.active {
+  font-weight: bolder; /* Menonjolkan teks */
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px; /* Ketebalan garis */
+  background: #ffffff; /* Warna garis */
+  bottom: -8px; /* Jarak garis dari teks */
+  left: 0;
+}
+</style>
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 
-//example components
+// Example components
 import NavbarDefault from "@/examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 import Header from "../../../examples/Header.vue";
-// import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
-// import logo from "@/assets/img/stellar-logo-light.svg";
-import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
+// import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
 import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
+import AboutClient from "../AboutUs/Sections/AboutClient.vue";
 
-import SolutionsUnique from "../Solutions/SolutionsUnique.vue";
-import SolutionsIndustry from "../Solutions/SolutionsIndustry.vue";
-import SolutionsBenefit from "../Solutions/SolutionsBenefit.vue";
+import ProductsOpinion from "./Components/ProductsOpinion.vue";
+import ProductsFeatures from "./Components/ProductsFeatures.vue";
+import ProductsSolutions from "./Components/ProductsSolutions.vue";
+import ProductsFooter from "./Components/ProductsFooter.vue";
+import ProductsNavbar from "./Components/ProductsNavbar.vue";
 
-//images
-import imageHeader from "@/assets/img/background-header-light.svg";
+// Images
+import imageHeader from "@/assets/img/products-bom-header-image.svg";
 import bottomVue from "@/assets/img/bottom-background.svg";
+// import vueMkHeader from "@/assets/img/superiority-image.svg";
 
-//hooks
+// Hooks
 const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
   body.classList.add("presentation-page");
@@ -29,56 +55,66 @@ onUnmounted(() => {
   body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
-// import { useRoute } from "vue-router";
-// const currentRouteName = computed(() => {
-//   return useRoute().name;
-// });
 </script>
 
 <template>
   <NavbarDefault
     :sticky="true"
-    class="position-sticky z-index-sticky top-0"
+    class="position-sticky z-index-sticky top-0 z-index-4"
     style="border-radius: 0"
+  ></NavbarDefault>
+  <ProductsNavbar
+    class="position-relative z-index-2"
+    title="Back-Office Management"
   />
-  <Header>
+
+  <Header class="pt-5">
     <div
       class="page-header min-vh-100"
-      :style="`background-image: url(${imageHeader});`"
+      :style="`background-image: url(${imageHeader}); background-position: top;`"
       loading="lazy"
     >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 text-center mx-auto position-relative">
+      <div class="container" id="overview">
+        <div class="row mt-5">
+          <div class="col-lg-6 mb-10">
             <h1
               class="text-dark pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
-              Full-range of services
+              Enhance every purchase
             </h1>
-            <p class="lead px-5 mt-3" :style="{ fontWeight: '200' }">
-              Our innovative solutions are the rocket fuel your business needs
-              to blast off Imagine automating tedious tasks
+            <p class="lead mt-3" :style="{ fontWeight: '200' }">
+              Make every purchase a win, with a POS system that’s as smooth as
+              your brand. It’s time to turn up the experience and make every
+              sale unforgettable.
             </p>
             <a
               href="/"
-              class="btn btn-sm mb-0 bg-info px-5 py-3 mt-4 text-white"
-              >Explore</a
+              class="btn btn-sm mb-0 bg-info px-5 py-3 mt-3 text-white"
+              >Book a Meeting</a
             >
           </div>
+          <div class="col-lg-6"></div>
         </div>
-        <PresentationClient class="mt-0 mb-0" />
+        <!-- <PresentationClient class="mt-0 mb-0" /> -->
       </div>
     </div>
   </Header>
+
   <div class="container-fluid bg-white mt-n6">
-    <SolutionsUnique class="mt-6 mb-4" />
+    <ProductsOpinion class="mt-6 mb-3" />
     <hr :class="`horizontal dark`" />
-    <SolutionsIndustry class="mt-6 mb-4" />
+    <ProductsFeatures class="mt-6 mb-3" id="features" />
+
+    <!-- <hr :class="`horizontal dark`" /> -->
+    <ProductsSolutions class="mt-6 mb-4" id="solutions" />
+
+    <!-- <SolutionsIndustry class="mt-6 mb-4" /> -->
+    <AboutClient />
     <hr :class="`horizontal dark`" />
-    <SolutionsBenefit class="mb-4" />
-    <hr :class="`horizontal dark`" />
-    <PresentationFaq class="mb-4" />
+    <ProductsFooter class="mt-4 mb-4" id="resources" />
+    <!-- <hr :class="`horizontal dark`" /> -->
+    <PresentationFaq class="mb-4" id="faq" />
   </div>
 
   <Header class="mt-n4">

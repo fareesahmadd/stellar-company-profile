@@ -1,5 +1,5 @@
 <script setup>
-import ContactMaps from './ContactMaps.vue'
+import ContactMaps from "./ContactMaps.vue";
 // import image from "@/assets/img/illustrations/illustration-signin.jpg";
 </script>
 
@@ -37,7 +37,7 @@ import ContactMaps from './ContactMaps.vue'
             Monday - Friday: 9:30AM - 5:30PM
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="position: relative; z-index: 0">
           <div class="container">
             <div class="text-center mt-3"></div>
             <div class="text-center mt-3">
@@ -45,6 +45,7 @@ import ContactMaps from './ContactMaps.vue'
                 href="https://maps.app.goo.gl/mUjBrrvaSKNywf2T7"
                 target="_blank"
                 rel="noopener noreferrer"
+                style="position: relative; z-index: 0"
               >
                 <ContactMaps />
               </a>
