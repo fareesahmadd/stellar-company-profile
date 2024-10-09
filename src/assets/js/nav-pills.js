@@ -9,7 +9,6 @@ export default function setNavPills() {
       var first_li = item.querySelector('li:first-child .nav-link');
       var tab = first_li.cloneNode();
       tab.innerHTML = "-";
-
       moving_div.classList.add('moving-tab', 'position-absolute', 'nav-link');
       moving_div.appendChild(tab);
       item.appendChild(moving_div);
@@ -17,6 +16,8 @@ export default function setNavPills() {
       var list_length = item.getElementsByTagName("li").length;
 
       moving_div.style.padding = '0px';
+  // setNavPills("#293591");
+      // moving_div.style.='#293591'
       moving_div.style.width = item.querySelector('li:nth-child(1)').offsetWidth + 'px';
       moving_div.style.transform = 'translate3d(0px, 0px, 0px)';
       moving_div.style.transition = '.5s ease';

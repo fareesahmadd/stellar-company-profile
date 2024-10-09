@@ -8,15 +8,16 @@ import Header from "../../../examples/Header.vue";
 // import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
 // import logo from "@/assets/img/stellar-logo-light.svg";
-import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
 import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
+import ProductsNavbar from "./Components/ProductsNavbar.vue";
+import AboutClient from "../AboutUs/Sections/AboutClient.vue";
 
-import SolutionsUnique from "../Solutions/SolutionsUnique.vue";
-import SolutionsIndustry from "../Solutions/SolutionsIndustry.vue";
-import SolutionsBenefit from "../Solutions/SolutionsBenefit.vue";
+import ProductsFeatures from "./Components/ProductsFeatures.vue";
+import ProductsSolutions from "./Components/ProductsSolutions.vue";
+import ProductsFooter from "./Components/ProductsFooter.vue";
 
 //images
-import imageHeader from "@/assets/img/background-header-light.svg";
+import imageHeader from "@/assets/img/products-fm-header.svg";
 import bottomVue from "@/assets/img/bottom-background.svg";
 
 //hooks
@@ -29,10 +30,6 @@ onUnmounted(() => {
   body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
-// import { useRoute } from "vue-router";
-// const currentRouteName = computed(() => {
-//   return useRoute().name;
-// });
 </script>
 
 <template>
@@ -41,44 +38,47 @@ onUnmounted(() => {
     class="position-sticky z-index-sticky top-0"
     style="border-radius: 0"
   />
-  <Header>
+  <ProductsNavbar
+    class="position-relative z-index-2"
+    title="Financial Management"
+  />
+  <Header id="overview">
     <div
-      class="page-header min-vh-100"
-      :style="`background-image: url(${imageHeader});`"
+      class="page-header min-vh-75 mt-n7"
+      :style="`background-image: url(${imageHeader});background-size: cover`"
+      style="width: 100%; height: 1005px"
       loading="lazy"
     >
       <div class="container">
-        <div class="row">
+        <div class="row mt-n8">
           <div class="col-lg-7 text-center mx-auto position-relative">
-            <h1
-              class="text-dark pt-6 me-2"
-              :style="{ display: 'inline-block ' }"
-            >
-              Full-range of services
+            <h1 class="text-dark mt-n10 me-2">
+              Get real-time analytics keep stay sharp.
             </h1>
-            <p class="lead px-5 mt-3" :style="{ fontWeight: '200' }">
-              Our innovative solutions are the rocket fuel your business needs
-              to blast off Imagine automating tedious tasks
+            <p class="lead text-dark mt-3" :style="{ fontWeight: '200' }">
+              Tracking your financial performance, identifying trends, and
+              optimizing your strategies in real-time. Sharpen your focus on
+              what matters most.
             </p>
             <a
               href="/"
               class="btn btn-sm mb-0 bg-info px-5 py-3 mt-4 text-white"
-              >Explore</a
+              >Book a Meeting</a
             >
           </div>
         </div>
-        <PresentationClient class="mt-0 mb-0" />
       </div>
     </div>
   </Header>
+  <div>
+    <AboutClient />
+  </div>
   <div class="container-fluid bg-white mt-n6">
-    <SolutionsUnique class="mt-6 mb-4" />
-    <hr :class="`horizontal dark`" />
-    <SolutionsIndustry class="mt-6 mb-4" />
-    <hr :class="`horizontal dark`" />
-    <SolutionsBenefit class="mb-4" />
-    <hr :class="`horizontal dark`" />
-    <PresentationFaq class="mb-4" />
+    <ProductsFeatures class="mt-6 mb-3" id="features" />
+    <hr :class="`horizontal dark`" id="solutions" />
+    <ProductsSolutions class="mt-6 mb-4" />
+    <ProductsFooter class="mt-7 mb-4" id="resources" />
+    <PresentationFaq class="mb-4" id="faq" />
   </div>
 
   <Header class="mt-n4">

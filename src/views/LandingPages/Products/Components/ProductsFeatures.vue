@@ -4,7 +4,7 @@
       <div class="row">
         <div class="text-center mb-5 px-11">
           <button class="btn btn-outline-info btn-sm mt-4" disabled>
-            Industry
+            Features
           </button>
           <h2 class="font-weight-bold">Industry-Specific ERP Solutions</h2>
           <p>
@@ -214,6 +214,95 @@
                     suppliers through integrated tools.
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="currentRouteName === 'products-fm'" class="container-fluid">
+      <div class="row py-5">
+        <div class="text-center mb-1 px-9">
+          <button class="btn btn-outline-info btn-sm mt-5" disabled>
+            Features
+          </button>
+          <h2 class="font-weight-bold px-10">Master Your finances</h2>
+          <p class="mx-9">
+            Our platform is designed to provide you with the tools needed to
+            manage your financial operations with precision and ease.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-none">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-start"
+                style="text-align: center"
+              >
+                <img
+                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  alt="Point of Sale"
+                  class="mb-4 img-fluid"
+                />
+                <h5
+                  class="card-title font-weight-bold"
+                  style="font-size: large"
+                >
+                  Automated Invoicing and Billing
+                </h5>
+                <p class="card-text text-muted" style="font-size: smaller">
+                  Automated billing cycles, recurring invoices, and payment
+                  reminders to ensure timely payments.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-none">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-start"
+                style="text-align: center"
+              >
+                <img
+                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  alt="Point of Sale"
+                  class="mb-4 img-fluid"
+                />
+                <h5
+                  class="card-title font-weight-bold"
+                  style="font-size: large"
+                >
+                  Real-Time Financial Reporting
+                </h5>
+                <p class="card-text text-muted" style="font-size: smaller">
+                  Profit and loss statements, balance sheets, and cash flow
+                  statements, to monitor your business’s financial health.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-none">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+                style="text-align: center"
+              >
+                <img
+                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  alt="Point of Sale"
+                  class="mb-4 img-fluid"
+                />
+                <h5
+                  class="card-title font-weight-bold"
+                  style="font-size: large"
+                >
+                  Budgeting and Forecasting
+                </h5>
+                <p class="card-text text-muted" style="font-size: smaller">
+                  Plan your financial future with tools that allow you to create
+                  budgets, forecast revenue, and compare projection.
+                </p>
               </div>
             </div>
           </div>

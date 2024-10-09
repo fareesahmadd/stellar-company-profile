@@ -68,13 +68,13 @@ onUnmounted(() => {
     title="Back-Office Management"
   />
 
-  <Header class="pt-5">
+  <Header class="pt-5" id="overview">
     <div
       class="page-header min-vh-100"
       :style="`background-image: url(${imageHeader}); background-position: top;`"
       loading="lazy"
     >
-      <div class="container" id="overview">
+      <div class="container">
         <div class="row mt-5">
           <div class="col-lg-6 mb-10">
             <h1

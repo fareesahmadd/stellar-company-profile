@@ -1,5 +1,8 @@
 <template>
-  <div class="row py-6 text-center">
+  <div
+    class="row py-6 text-center"
+    v-bind:style="{ backgroundColor: isProductFmPage ? '#0f1423' : '' }"
+  >
     <div class="col-12">
       <p class="lead mt-2" v-if="!isNotAboutPage">
         Top leading companies trust us
@@ -42,6 +45,9 @@ export default {
     },
     isNotAboutPage() {
       return this.currentRouteName !== "about";
+    },
+    isProductFmPage() {
+      return this.currentRouteName === "products-fm";
     },
   },
 };

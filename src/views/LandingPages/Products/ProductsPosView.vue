@@ -133,13 +133,13 @@ onUnmounted(() => {
   </nav> -->
   <!-- </Header> -->
 
-  <Header>
+  <Header id="overview">
     <div
       class="page-header min-vh-100"
       :style="`background-image: url(${imageHeader});`"
       loading="lazy"
     >
-      <div class="container" id="overview">
+      <div class="container">
         <div class="row mt-6">
           <div class="col-lg-6">
             <h1
@@ -179,16 +179,13 @@ onUnmounted(() => {
 
   <div class="container-fluid bg-white mt-n6">
     <ProductsOpinion class="mt-6 mb-3" />
-    <hr :class="`horizontal dark`" />
-    <ProductsFeatures class="mt-6 mb-3" id="features" />
+    <hr :class="`horizontal dark`" id="features" />
+    <ProductsFeatures class="mt-6 mb-3" />
 
     <hr :class="`horizontal dark`" />
     <ProductsSolutions class="mt-6 mb-4" id="solutions" />
-
-    <!-- <SolutionsIndustry class="mt-6 mb-4" /> -->
-    <!-- <hr :class="`horizontal dark`" /> -->
-    <ProductsFooter class="mt-4 mb-4" id="resources" />
-    <!-- <hr :class="`horizontal dark`" /> -->
+    <hr :class="`horizontal white mt-n7`" id="resources" />
+    <ProductsFooter class="mt-4 mb-4" />
     <PresentationFaq class="mb-4" id="faq" />
   </div>
 
