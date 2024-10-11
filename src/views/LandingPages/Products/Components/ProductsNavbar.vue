@@ -121,7 +121,7 @@ const scrollToSection = (section) => {
   width: 100%;
   height: 3px; /* Ketebalan garis */
   background: #ffffff; /* Warna garis */
-  bottom: -8px; /* Jarak garis dari teks */
+  bottom: -6px; /* Jarak garis dari teks */
   left: 0;
 }
 </style>

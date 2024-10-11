@@ -25,7 +25,7 @@
             <button class="btn btn-outline-info btn-sm mt-4" disabled>
               Insights
             </button>
-            <h5 class="card-title font-weight-bold">Point of Sale (POS)</h5>
+            <h5 class="card-title font-weight-bold">Point of Sales (POS)</h5>
             <p class="card-text text-muted">
               From Chaos to Control: How ERP Systems Simplify Back-Office
               Management
@@ -70,7 +70,7 @@
             <button class="btn btn-outline-info btn-sm mt-4" disabled>
               Insights
             </button>
-            <h5 class="card-title font-weight-bold">Point of Sale (POS)</h5>
+            <h5 class="card-title font-weight-bold">Point of Sales (POS)</h5>
             <p class="card-text text-muted">
               From Chaos to Control: How ERP Systems Simplify Back-Office
               Management
@@ -115,7 +115,7 @@
             <button class="btn btn-outline-info btn-sm mt-4" disabled>
               Insights
             </button>
-            <h5 class="card-title font-weight-bold">Point of Sale (POS)</h5>
+            <h5 class="card-title font-weight-bold">Point of Sales (POS)</h5>
             <p class="card-text text-muted">
               From Chaos to Control: How ERP Systems Simplify Back-Office
               Management

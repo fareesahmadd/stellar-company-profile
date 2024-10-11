@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
 .nav-link {
   position: relative;
   transition: color 0.3s ease;
@@ -21,7 +21,7 @@
   bottom: -8px; /* Jarak garis dari teks */
   left: 0;
 }
-</style>
+</style> -->
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 
@@ -136,7 +136,7 @@ onUnmounted(() => {
   <Header id="overview">
     <div
       class="page-header min-vh-100"
-      :style="`background-image: url(${imageHeader});`"
+      :style="`background-image: url(${imageHeader}); background-size: cover; background-position: center;`"
       loading="lazy"
     >
       <div class="container">

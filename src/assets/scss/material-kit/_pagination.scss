@@ -1,6 +1,20 @@
 .page-item {
   &.active .page-link {
     box-shadow: $pagination-active-box-shadow;
+    background-color: $info;
+    border: none; /* Hapus border pada item terpilih */
+    color: white; /* Ubah warna teks menjadi putih */
+  }
+  .page-next {
+    &.active .page-link {
+      // box-shadow: $pagination-active-box-shadow;
+      background-color: $info;
+      color: white; /* Ubah warna teks menjadi putih */
+    }
+  }
+  .page-next.disabled .page-link {
+    color: #fff; /* Warna untuk item yang dinonaktifkan */
+    pointer-events: none; /* Nonaktifkan klik pada item yang dinonaktifkan */
   }
 
   .page-link,
@@ -8,7 +22,7 @@
     display: $page-link-display;
     align-items: $page-link-align-items;
     justify-content: $page-link-justify-content;
-    color: $secondary;
+    color: $info; /* Warna teks default */
     padding: 0;
     margin: $page-link-margin;
     border-radius: $page-link-radius !important;
@@ -40,6 +54,22 @@
   }
 }
 
+.clickable {
+  cursor: pointer; /* Menunjukkan bahwa elemen dapat diklik */
+  color: $info; /* Warna teks yang diinginkan */
+  text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+.clickable:hover {
+  color: $info; /* Warna tetap sama saat hover */
+  background-color: transparent; /* Pastikan background tetap transparan */
+}
+
+
+.page-item.disabled .page-link {
+  color: #d2d2d2; /* Warna untuk item yang dinonaktifkan */
+  pointer-events: none; /* Nonaktifkan klik pada item yang dinonaktifkan */
+}
 
 // Colors
 .pagination {
@@ -50,7 +80,7 @@
         &:focus,
         &:hover {
           @include gradient-directional(nth($value, 1) 0%, nth($value, -1) 100%, $deg: 195deg);
-          border: none;
+          border: none; /* Pastikan tidak ada border saat hover */
         }
       }
     }

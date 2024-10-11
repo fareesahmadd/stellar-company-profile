@@ -4,6 +4,7 @@ import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import SolutionsView from "../views/LandingPages/Solutions/SolutionsView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
+import BlogsView from "../views/LandingPages/Blogs/BlogsView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
 import ProductPosView from "../views/LandingPages/Products/ProductsPosView.vue";
 import ProductFmView from "../views/LandingPages/Products/ProductsFmView.vue";
@@ -45,6 +46,17 @@ const router = createRouter({
       name: "contactus",
       component: ContactView,
     },
+    {
+      path: "/pages/landing-pages/blogs",
+      name: "blogs",
+      component: BlogsView,
+    },
+    {
+      path: "/pages/landing-pages/blogs/:id/:title",
+      name: "blog-details",
+      component: BlogsView,
+    },
+
     {
       path: "/pages/landing-pages/author",
       name: "author",
