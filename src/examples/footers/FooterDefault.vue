@@ -33,14 +33,6 @@ defineProps({
         icon: xIcon,
         link: "/",
       },
-      // {
-      //   icon: '<i class="fab fa-github text-lg opacity-8"></i>',
-      //   link: "https://github.com/creativetimofficial",
-      // },
-      // {
-      //   icon: '<i class="fab fa-youtube text-lg opacity-8"></i>',
-      //   link: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
-      // },
     ],
   },
   menus: {
@@ -171,10 +163,12 @@ defineProps({
           <div class="col-6">
             <div class="text-center">
               <p class="text-muted my-4 text-sm text-end font-weight-normal">
-                <a href="/" class="text-muted px-3" target="_blank"
+                <a
+                  href="/pages/landing-pages/terms-condition"
+                  class="text-muted px-3"
                   >Terms & Condition</a
                 >
-                <a href="/" class="text-muted" target="_blank"
+                <a href="/pages/landing-pages/privacy-policy" class="text-muted"
                   >Privacy Policy</a
                 >
               </p>

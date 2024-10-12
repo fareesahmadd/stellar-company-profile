@@ -5,6 +5,7 @@ import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import SolutionsView from "../views/LandingPages/Solutions/SolutionsView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
 import BlogsView from "../views/LandingPages/Blogs/BlogsView.vue";
+import TermsConditionView from "../views/LandingPages/Terms/TermsConditionView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
 import ProductPosView from "../views/LandingPages/Products/ProductsPosView.vue";
 import ProductFmView from "../views/LandingPages/Products/ProductsFmView.vue";
@@ -56,7 +57,6 @@ const router = createRouter({
       name: "blog-details",
       component: BlogsView,
     },
-
     {
       path: "/pages/landing-pages/author",
       name: "author",
@@ -71,6 +71,16 @@ const router = createRouter({
       path: "/pages/landing-pages/basic",
       name: "signin-basic",
       component: SignInBasicView,
+    },
+    {
+      path: "/pages/landing-pages/terms-condition",
+      name: "terms-condition",
+      component: TermsConditionView,
+    },
+    {
+      path: "/pages/landing-pages/privacy-policy",
+      name: "privacy-policy",
+      component: TermsConditionView,
     },
     {
       path: "/pages/landing-pages/product-pos",
