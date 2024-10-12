@@ -164,11 +164,13 @@ defineProps({
             <div class="text-center">
               <p class="text-muted my-4 text-sm text-end font-weight-normal">
                 <a
-                  href="/pages/landing-pages/terms-condition"
+                  @click.prevent="$router.push({ name: 'terms-condition' })"
                   class="text-muted px-3"
                   >Terms & Condition</a
                 >
-                <a href="/pages/landing-pages/privacy-policy" class="text-muted"
+                <a
+                  @click.prevent="$router.push({ name: 'privacy-policy' })"
+                  class="text-muted"
                   >Privacy Policy</a
                 >
               </p>
