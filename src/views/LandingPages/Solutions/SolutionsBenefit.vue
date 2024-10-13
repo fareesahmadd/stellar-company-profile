@@ -46,17 +46,6 @@
             ></i
             >All services, one integrated system
           </p>
-          <!-- <p class="mt-n2" style="margin-right: 150px">
-            Gedung Graha Amarta, Jl. Ciputat Raya No.5, RT.4/RW.7, Pd. Pinang,
-            Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta
-            12310
-          </p>
-          <p class="font-weight-bold mt-4" style="margin-right: 150px">
-            Operational hours
-          </p>
-          <p class="mt-n2" style="margin-right: 150px">
-            Monday - Friday: 9:30AM - 5:30PM
-          </p> -->
         </div>
         <div class="col-md-6">
           <div class="container">

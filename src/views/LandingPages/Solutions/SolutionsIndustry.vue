@@ -15,7 +15,11 @@
       <div class="row mt-n4">
         <div class="col-lg-7 mx-auto">
           <div class="nav-wrapper position-relative end-0">
-            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+            <ul
+              class="nav nav-pills nav-fill p-1"
+              role="tablist"
+              style="position: relative; z-index: 0"
+            >
               <li class="nav-item">
                 <a
                   class="nav-link mb-0 px-4 py-1 active"

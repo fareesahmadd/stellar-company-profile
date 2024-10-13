@@ -1,7 +1,7 @@
 <script setup>
 import retailImage from "@/assets/img/retail-image.svg";
 
-defineProps({
+const props = defineProps({
   id: {
     type: String,
     default: "",
@@ -55,7 +55,66 @@ defineProps({
     default: "",
   },
 });
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
+const currentRouteName = computed(() => {
+  return useRoute().name;
+});
+
+const capitalLetter = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+const contentList = [
+  {
+    id: "revenue",
+    title: "Optimize Your Income Streams",
+    description:
+      "Elevate your brand to new heights ensuring your message reaches its full potential and captivates your audience. Elevate your brand to new heights ensuring your message reaches its full potential and captivates your audience.",
+    items: [
+      { text: "Track and manage your revenue" },
+      { text: "Monitor sales, manage invoices, and ensure timely payments" },
+      { text: "Clear view of income and maximize profitability." },
+    ],
+  },
+  {
+    id: "expenses",
+    title: "Streamline Your Spending",
+    description:
+      "Elevate your brand to new heights ensuring your message reaches its full potential and captivates your audience.",
+    items: [
+      { text: "Track and manage your tax obligations" },
+      { text: "Ensure compliance with local tax regulations" },
+      { text: "Maximize deductions and minimize liabilities." },
+    ],
+  },
+  {
+    id: "tax",
+    title: "Simplify Your Tax Obligations",
+    description:
+      "Elevate your brand to new heights ensuring your message reaches its full potential and captivates your audience.",
+    items: [
+      { text: "Track and manage your revenue" },
+      { text: "Monitor sales, manage invoices, and ensure timely payments" },
+      { text: "Clear view of income and maximize profitability." },
+    ],
+  },
+  {
+    id: "forecasting",
+    title: "Plan for the Future with Confidence",
+    description:
+      "Elevate your brand to new heights ensuring your message reaches its full potential and captivates your audience.",
+    items: [
+      { text: "Track and manage your tax obligations" },
+      { text: "Ensure compliance with local tax regulations" },
+      { text: "Maximize deductions and minimize liabilities." },
+    ],
+  },
+];
+
+const filteredContent = computed(() => {
+  return contentList.filter((content) => content.id === props.id);
+});
 
 const openAccordions = ref({});
 const accordionItems = [
@@ -102,7 +161,7 @@ const accordionItems = [
           ></div>
         </div>
         <div class="col-md-6">
-          <div class="container">
+          <div class="container" v-if="currentRouteName !== 'products-fm'">
             <h2 class="font-weight-bold">Reinvent Retail with energetic ERP</h2>
             <p>
               Elevate your brand to new heights ensuring your message reaches
@@ -142,6 +201,27 @@ const accordionItems = [
                     {{ item.content }}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="container" v-if="currentRouteName === 'products-fm'">
+            <div v-for="content in filteredContent" :key="content.id">
+              <p class="font-weight-bold text-dark">
+                {{ capitalLetter(content.id) }}
+              </p>
+              <h2 class="font-weight-bold">{{ content.title }}</h2>
+              <p class="mt-4">{{ content.description }}</p>
+              <div
+                v-for="item in content.items"
+                :key="item.text"
+                class="font-weight-bold mb-3"
+              >
+                <i
+                  class="fa fa-check-circle text-info"
+                  style="margin-right: 10px"
+                  aria-hidden="true"
+                ></i>
+                {{ item.text }}
               </div>
             </div>
           </div>

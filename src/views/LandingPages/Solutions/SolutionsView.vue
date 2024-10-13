@@ -38,7 +38,7 @@ onUnmounted(() => {
 <template>
   <NavbarDefault
     :sticky="true"
-    class="position-sticky z-index-sticky top-0"
+    class="position-sticky z-index-sticky top-0 z-index-4"
     style="border-radius: 0"
   />
   <Header>

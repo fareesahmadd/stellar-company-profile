@@ -262,52 +262,18 @@
           <div class="col-lg-7 mx-auto">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                <li class="nav-item">
+                <li
+                  class="nav-item"
+                  v-for="industry in industries"
+                  :key="industry.id"
+                >
                   <a
-                    class="nav-link mb-0 px-4 py-1 active"
-                    data-bs-toggle="tab"
-                    href="#profile-tabs-simple"
+                    class="nav-link mb-0 px-4 py-1"
+                    :class="{ active: activeTab === industry.id }"
+                    @click="setActiveTab(industry.id)"
                     role="tab"
-                    aria-controls="profile"
-                    aria-selected="true"
                   >
-                    Retail
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link mb-0 px-0 py-1"
-                    data-bs-toggle="tab"
-                    href="#dashboard-tabs-simple"
-                    role="tab"
-                    aria-controls="dashboard"
-                    aria-selected="false"
-                  >
-                    Manufacturing
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link mb-0 px-2 py-1"
-                    data-bs-toggle="tab"
-                    href="#dashboard-tabs-simple"
-                    role="tab"
-                    aria-controls="dashboard"
-                    aria-selected="false"
-                  >
-                    Healthcare
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link mb-0 px-2 py-1"
-                    data-bs-toggle="tab"
-                    href="#dashboard-tabs-simple"
-                    role="tab"
-                    aria-controls="dashboard"
-                    aria-selected="false"
-                  >
-                    Hospitality
+                    {{ industry.name }}
                   </a>
                 </li>
               </ul>
@@ -315,7 +281,7 @@
           </div>
         </div>
         <div>
-          <IndustryView />
+          <IndustryView :id="activeTab" />
         </div>
       </div>
       <div class="row mx-auto mt-7">
@@ -381,7 +347,7 @@ import financialStatements from "@/assets/img/financial-statements-image.svg";
 
 import IndustryView from "../../Solutions/Components/IndustryView.vue";
 
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 import { useRoute } from "vue-router";
 const currentRouteName = computed(() => {
   return useRoute().name;
@@ -392,4 +358,16 @@ import setNavPills from "@/assets/js/nav-pills.js";
 onMounted(() => {
   setNavPills();
 });
+
+const activeTab = ref("revenue"); // Default active tab
+const industries = [
+  { id: "revenue", name: "Revenue" },
+  { id: "expenses", name: "Expenses" },
+  { id: "tax", name: "Tax" },
+  { id: "forecasting", name: "Forecasting" },
+];
+
+const setActiveTab = (tabId) => {
+  activeTab.value = tabId;
+};
 </script>
