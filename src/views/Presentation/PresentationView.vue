@@ -5,12 +5,10 @@ import { onMounted, onUnmounted } from "vue";
 import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "../../examples/footers/FooterDefault.vue";
 import Header from "../../examples/Header.vue";
-// import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
 import logo from "@/assets/img/stellar-logo-light.svg";
 
 // sections
-// import PresentationCounter from "./Sections/PresentationCounter.vue";
 import PresentationStories from "./Sections/PresentationStories.vue";
 import PresentationFaq from "./Sections/PresentationFaq.vue";
 import PresentationTestimonial from "./Sections/PresentationTestimonial.vue";
@@ -20,12 +18,9 @@ import PresentationSuperiority from "./Sections/PresentationSuperiority.vue";
 import PresentationClient from "./Sections/PresentationClient.vue";
 
 //images
-import vueMkHeader from "@/assets/img/background-home-12.png";
+import vueMkHeader from "@/assets/img/header-home-image.svg";
 import bottomVue from "@/assets/img/bottom-background.svg";
 
-import vueMkHeader2 from "@/assets/img/background-home-11.png";
-
-//hooks
 const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
   body.classList.add("presentation-page");
@@ -35,10 +30,6 @@ onUnmounted(() => {
   body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
-// import { useRoute } from "vue-router";
-// const currentRouteName = computed(() => {
-//   return useRoute().name;
-// });
 </script>
 
 <template>
@@ -57,7 +48,7 @@ onUnmounted(() => {
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
-              class="text-white pt-3 mt-n5 me-2"
+              class="text-white pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
               <img :src="logo" alt="Logo" class="logo" />
@@ -75,14 +66,12 @@ onUnmounted(() => {
               >Book a Meeting</a
             >
           </div>
+          <div class="card mt-10"></div>
+          <div class="card mt-10"></div>
+          <div class="card mt-10"></div>
         </div>
       </div>
     </div>
-    <div
-      class="page-header min-vh-80"
-      :style="`background-image: url(${vueMkHeader2})`"
-      loading="lazy"
-    />
   </Header>
   <div class="container-fluid bg-white mt-n6">
     <PresentationClient class="mt-6 mb-4" />
