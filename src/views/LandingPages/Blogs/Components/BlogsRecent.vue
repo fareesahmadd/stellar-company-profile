@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- <h4>Recent Blogs</h4> -->
-
     <!-- Input pencarian di bagian atas -->
     <div class="row">
       <div class="col-md-12">

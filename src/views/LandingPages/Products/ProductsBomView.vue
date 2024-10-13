@@ -31,9 +31,9 @@ import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 import Header from "../../../examples/Header.vue";
 
 // import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
-import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
 import AboutClient from "../AboutUs/Sections/AboutClient.vue";
 
+import ProductFaq from "./Components/ProductFaq.vue";
 import ProductsOpinion from "./Components/ProductsOpinion.vue";
 import ProductsFeatures from "./Components/ProductsFeatures.vue";
 import ProductsSolutions from "./Components/ProductsSolutions.vue";
@@ -114,7 +114,7 @@ onUnmounted(() => {
     <hr :class="`horizontal dark`" />
     <ProductsFooter class="mt-4 mb-4" id="resources" />
     <!-- <hr :class="`horizontal dark`" /> -->
-    <PresentationFaq class="mb-4" id="faq" />
+    <ProductFaq class="mb-4" id="faq" />
   </div>
 
   <Header class="mt-n4">

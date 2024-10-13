@@ -56,19 +56,6 @@ onMounted(() => {
     <div class="page-header min-vh-100">
       <div class="container">
         <div class="row">
-          <!--Comment-->
-          <!-- <div
-            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column"
-          > 
-            <div
-              class="position-relative h-75 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
-              :style="{
-                backgroundImage: `url(${image})`,
-                backgroundSize: 'cover'
-              }"
-              loading="lazy"
-            ></div>
-          </div> -->
           <div
             class="col-6 mt-0 d-flex justify-content-end col-xl-6 col-md-9 col-sm-9 mb-4"
           >

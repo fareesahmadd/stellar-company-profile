@@ -8,13 +8,14 @@ import Header from "../../../examples/Header.vue";
 // import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
 // import logo from "@/assets/img/stellar-logo-light.svg";
-import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
+import ProductFaq from "./Components/ProductFaq.vue";
 import ProductsNavbar from "./Components/ProductsNavbar.vue";
 import AboutClient from "../AboutUs/Sections/AboutClient.vue";
 
 import ProductsFeatures from "./Components/ProductsFeatures.vue";
 import ProductsSolutions from "./Components/ProductsSolutions.vue";
 import ProductsFooter from "./Components/ProductsFooter.vue";
+// import FAQ from "./Components/FAQ.vue";
 
 //images
 import imageHeader from "@/assets/img/products-fm-header.svg";
@@ -76,9 +77,12 @@ onUnmounted(() => {
   <div class="container-fluid bg-white mt-n6">
     <ProductsFeatures class="mt-6 mb-3" id="features" />
     <hr :class="`horizontal dark`" id="solutions" />
-    <ProductsSolutions class="mt-6 mb-4" />
+    <ProductsSolutions
+      class="mt-6 mb-4"
+      style="position: relative; z-index: 0"
+    />
     <ProductsFooter class="mt-7 mb-4" id="resources" />
-    <PresentationFaq class="mb-4" id="faq" />
+    <ProductFaq class="mb-4" id="faq" />
   </div>
 
   <Header class="mt-n4">
