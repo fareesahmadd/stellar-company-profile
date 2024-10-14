@@ -45,45 +45,38 @@ import DefaultReviewCard from "@/examples/cards/reviewCards/DefaultReviewCard.vu
           :rating="5.0"
         />
       </div>
-
-      <!-- <hr class="horizontal dark my-5" />
-      <div class="row">
-        <div class="col-lg-2 col-md-4 col-6 ms-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-apple.svg"
-            alt="Logo"
-          />
+      <div class="row mt-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="d-flex align-items-center justify-content-center">
+            <button
+              class="btn btn-outline-info mx-2"
+              style="
+                width: 100px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fas fa-chevron-left" style="font-size: large"></i>
+            </button>
+            <button
+              class="btn btn-outline-info mx-2"
+              style="
+                width: 100px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fas fa-chevron-right" style="font-size: large"></i>
+            </button>
+          </div>
         </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-facebook.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-nasa.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-vodafone.svg"
-            alt="Logo"
-          />
-        </div>
-        <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">
-          <img
-            class="w-100 opacity-6"
-            src="@/assets/img/logos/gray-logos/logo-digitalocean.svg"
-            alt="Logo"
-          />
-        </div> -->
-      <!-- </div> -->
+        <div class="col-md-4"></div>
+      </div>
     </div>
   </section>
 </template>

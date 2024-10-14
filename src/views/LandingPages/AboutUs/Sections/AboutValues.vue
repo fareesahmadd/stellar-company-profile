@@ -82,7 +82,7 @@ const currentRouteName = computed(() => {
         />
       </div>
       <div class="text-center mb-5 px-11">
-        <p class="px-4">
+        <p class="px-4 quote">
           Implementing Stellar Gelora's ERP software has been a game-changer for
           our business. From day one, the team at Stellar Gelora worked closely
           with us to customize the system to meet our specific needs. The point

@@ -1,27 +1,11 @@
-<!-- <style>
-.nav-link {
-  position: relative;
-  transition: color 0.3s ease;
+<style scoped>
+.gradient-title {
+  background: linear-gradient(90deg, #1b2361, #4d57a3, #949ac8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensure it behaves like inline text */
 }
-
-.nav-link:hover {
-  color: #ffffff; /* Ganti dengan warna hover yang diinginkan */
-}
-
-.nav-link.active {
-  font-weight: bolder; /* Menonjolkan teks */
-}
-
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px; /* Ketebalan garis */
-  background: #ffffff; /* Warna garis */
-  bottom: -8px; /* Jarak garis dari teks */
-  left: 0;
-}
-</style> -->
+</style>
 <script setup>
 import { onMounted, onUnmounted } from "vue";
 
@@ -78,7 +62,7 @@ onUnmounted(() => {
         <div class="row mt-5">
           <div class="col-lg-6 mb-10">
             <h1
-              class="text-dark pt-6 me-2"
+              class="gradient-title text-dark pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
               Enhance every purchase

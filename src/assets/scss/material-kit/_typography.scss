@@ -75,7 +75,7 @@ h1, .h1,
 h2, .h2,
 h3, .h3 {
   font-weight: $font-weight-bold;
-  font-family: $font-family-roboto-slab;
+  font-family: $font-family-abeezee;
 }
 
 h4, .h4,
@@ -156,6 +156,10 @@ p {
 
 .text-truncate {
   @include text-truncate();
+}
+
+blockquote, .quote {
+  font-family: 'Nimbus Sans L', sans-serif; /* Font for quotes */
 }
 
 // Weight and italics

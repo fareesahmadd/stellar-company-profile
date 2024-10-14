@@ -29,12 +29,15 @@ onUnmounted(() => {
   body.classList.remove("presentation-page");
   body.classList.remove("bg-gray-200");
 });
-// import { useRoute } from "vue-router";
-// const currentRouteName = computed(() => {
-//   return useRoute().name;
-// });
 </script>
-
+<style scoped>
+.gradient-title {
+  background: linear-gradient(90deg, #1b2361, #4d57a3, #949ac8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensure it behaves like inline text */
+}
+</style>
 <template>
   <NavbarDefault
     :sticky="true"
@@ -51,7 +54,7 @@ onUnmounted(() => {
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
-              class="text-dark pt-6 me-2"
+              class="gradient-title text-dark pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
               Full-range of services

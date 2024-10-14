@@ -25,6 +25,14 @@ onMounted(() => {
   setMaterialInput();
 });
 </script>
+<style scoped>
+.gradient-title {
+  background: linear-gradient(90deg, #1b2361, #4d57a3, #949ac8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensure it behaves like inline text */
+}
+</style>
 <template>
   <DefaultNavbar
     :sticky="true"
@@ -37,7 +45,7 @@ onMounted(() => {
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
-              class="text-dark pt-3 mt-n5 me-2"
+              class="gradient-title text-dark pt-3 mt-n5 me-2"
               :style="{ display: 'inline-block ' }"
             >
               Get in touch. <br />Stay connected fast.

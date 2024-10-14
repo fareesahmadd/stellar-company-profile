@@ -32,6 +32,14 @@ onUnmounted(() => {
   body.classList.remove("bg-gray-200");
 });
 </script>
+<style scoped>
+.gradient-title {
+  background: linear-gradient(90deg, #1b2361, #4d57a3, #949ac8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Ensure it behaves like inline text */
+}
+</style>
 
 <template>
   <NavbarDefault
@@ -51,9 +59,9 @@ onUnmounted(() => {
       loading="lazy"
     >
       <div class="container">
-        <div class="row mt-n8">
+        <div class="row mt-n10">
           <div class="col-lg-7 text-center mx-auto position-relative">
-            <h1 class="text-dark mt-n10 me-2">
+            <h1 class="gradient-title text-dark mt-n10 me-2">
               Get real-time analytics keep stay sharp.
             </h1>
             <p class="lead text-dark mt-3" :style="{ fontWeight: '200' }">
