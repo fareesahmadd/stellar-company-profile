@@ -1,16 +1,24 @@
 <template>
   <div>
     <div class="row py-6">
-      <div class="col-md-4">
-        <div><p class="lead px-5 mt-2">Trusted by industry leaders</p></div>
+      <div class="col-md-3 d-flex flex-column align-items-center">
+        <p class="lead mt-3">Trusted by industry leaders</p>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9 d-flex flex-column justify-content-center">
         <div class="d-flex flex-wrap">
-          <img :src="logos.sony" alt="Sony Logo" class="m-3" />
-          <img :src="logos.sony" alt="Sony Logo" class="m-3" />
-          <img :src="logos.fujifilm" alt="Fujifilm Logo" class="m-3" />
-          <img :src="logos.canon" alt="Canon Logo" class="m-3" />
-          <img :src="logos.sigma" alt="Sigma Logo" class="m-3" />
+          <img
+            :src="logos.sony"
+            alt="Sony Logo"
+            style="margin-left: 70px; margin-right: 70px"
+          />
+          <img :src="logos.sony" alt="Sony Logo" style="margin-right: 70px" />
+          <img
+            :src="logos.fujifilm"
+            alt="Fujifilm Logo"
+            style="margin-right: 70px"
+          />
+          <img :src="logos.canon" alt="Canon Logo" style="margin-right: 70px" />
+          <img :src="logos.sigma" alt="Sigma Logo" />
         </div>
       </div>
     </div>

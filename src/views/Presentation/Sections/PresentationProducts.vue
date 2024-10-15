@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" style="padding-right: 100px">
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Products
         </button>
@@ -9,8 +9,8 @@
           All retail solutions at Your fingertips
         </h2>
       </div>
-      <div class="col-md-6">
-        <p class="lead mt-6 text-end">
+      <div class="col-md-6" style="padding-left: 100px">
+        <p class="lead mt-6">
           From the moment of sale to inventory oversight and financial
           management, our solutions are designed to integrate seamlessly into
           your operations, enhancing efficiency and delivering exceptional
@@ -25,7 +25,7 @@
             class="card-body d-flex flex-column align-items-start justify-content-start"
           >
             <img
-              src="@/assets/img/inventory-management.svg"
+              src="@/assets/img/presentations/pos-home-image.svg"
               alt="Point of Sale"
               class="mb-4 img-fluid"
             />
@@ -63,8 +63,8 @@
             class="card-body d-flex flex-column align-items-start justify-content-start"
           >
             <img
-              src="@/assets/img/inventory-management.svg"
-              alt="Finance App"
+              src="@/assets/img/presentations/finance-home-image.svg"
+              alt="Point of Sale"
               class="mb-4 img-fluid"
             />
             <h5 class="card-title font-weight-bold">Finance App</h5>

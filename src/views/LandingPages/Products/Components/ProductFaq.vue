@@ -180,18 +180,18 @@ const toggleAccordion = (item) => {
         <div class="col-md-6">
           <button
             class="btn btn-outline-info btn-sm mt-4"
-            style="margin-left: 200px; margin-right: 50px"
+            style="margin-left: 180px; margin-right: 50px"
             disabled
           >
             FAQ
           </button>
           <h2
             class="font-weight-bold"
-            style="margin-left: 200px; margin-right: 50px"
+            style="margin-left: 180px; margin-right: 50px"
           >
             What people are asking most
           </h2>
-          <p style="margin-left: 200px; margin-right: 50px">
+          <p style="margin-left: 180px; margin-right: 50px">
             Find quick answers to commonly asked questions about Stellar. Have a
             question not answered?
           </p>

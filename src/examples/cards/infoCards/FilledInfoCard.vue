@@ -1,5 +1,33 @@
+<template>
+  <div
+    class="info-horizontal border-radius-xl d-block d-md-flex"
+    :class="`${color.background ?? ''}`"
+  >
+    <img :src="props.imageName" style="padding-bottom: 80px" />
+    <!-- <p v-else>Gambar tidak ditemukan</p> -->
+    <!-- <i class="material-icons text-3xl" :class="`text-${icon.color}`">{{
+      icon.component
+    }}</i> -->
+    <div class="ps-0 ps-md-3 mt-3 mt-md-0">
+      <h5 :class="`text-${color.text ?? ''} `">{{ title }}</h5>
+      <p :class="`text-${color.text ?? ''}`">
+        {{ description }}
+      </p>
+      <a
+        v-if="routeName !== 'presentation'"
+        :href="action.route"
+        class="icon-move-right"
+        :class="`text-${action.label.color ?? 'success'}`"
+      >
+        {{ action.label.text }}
+        <i class="fas fa-arrow-right text-sm ms-1"></i>
+      </a>
+    </div>
+  </div>
+</template>
+
 <script setup>
-defineProps({
+const props = defineProps({
   color: {
     text: String,
     background: {
@@ -24,13 +52,17 @@ defineProps({
       };
     },
   },
+  imageName: {
+    type: String,
+    required: true,
+  },
   routeName: {
     type: Boolean,
     required: true,
   },
   icon: {
     type: Object,
-    required: true,
+    required: false,
     component: String,
     color: String,
   },
@@ -58,28 +90,3 @@ defineProps({
   },
 });
 </script>
-<template>
-  <div
-    class="info-horizontal border-radius-xl d-block d-md-flex"
-    :class="`${color.background ?? ''}`"
-  >
-    <i class="material-icons text-3xl" :class="`text-${icon.color}`">{{
-      icon.component
-    }}</i>
-    <div class="ps-0 ps-md-3 mt-3 mt-md-0">
-      <h5 :class="`text-${color.text ?? ''} `">{{ title }}</h5>
-      <p :class="`text-${color.text ?? ''}`">
-        {{ description }}
-      </p>
-      <a
-        v-if="routeName !== 'presentation'"
-        :href="action.route"
-        class="icon-move-right"
-        :class="`text-${action.label.color ?? 'success'}`"
-      >
-        {{ action.label.text }}
-        <i class="fas fa-arrow-right text-sm ms-1"></i>
-      </a>
-    </div>
-  </div>
-</template>

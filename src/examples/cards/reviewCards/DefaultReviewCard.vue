@@ -140,12 +140,7 @@ const ratings = (rating) => {
   <div class="col-lg-4 col-md-8">
     <div :class="`card ${props.color ? props.color : 'card-plain'}`">
       <div class="card-body">
-        <img
-          v-if="props.image"
-          :src="props.image"
-          :alt="props.name"
-          class="avatar avatar-lg border-radius-lg shadow mt-n5"
-        />
+        <img v-if="props.image" :src="props.image" :alt="props.name" />
         <div class="author"></div>
         <p class="mt-4" :class="props.color ? 'text-white' : ''">
           {{ props.review }}
