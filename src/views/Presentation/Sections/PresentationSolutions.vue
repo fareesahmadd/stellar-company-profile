@@ -1,5 +1,6 @@
 <script setup>
-import { onMounted, onUnmounted, computed } from "vue";
+import { onMounted, onUnmounted, computed, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 
 //example components
 import FilledInfoCard from "../../../examples/cards/infoCards/FilledInfoCard.vue";
@@ -18,18 +19,31 @@ import { useRoute } from "vue-router";
 const currentRouteName = computed(() => {
   return useRoute().name;
 });
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div>
     <div class="card card-body bg-light shadow-none mx-3 mx-md-4">
-      <div class="text-center mb-5 px-9">
+      <div class="text-center mb-5">
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Solutions
         </button>
-        <h2 class="font-weight-bold px-9">
-          Every features you need, all in one ecosystem
-        </h2>
+        <div>
+          <h2 class="font-weight-bold">
+            Every features you need, <br />
+            all in one ecosystem.
+          </h2>
+        </div>
       </div>
       <div class="row mb-4">
         <div class="col-lg-4">

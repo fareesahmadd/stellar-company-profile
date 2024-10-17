@@ -1,14 +1,16 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
-        <button class="btn btn-outline-info btn-sm mt-4" disabled>
-          Stories
-        </button>
-        <h2 class="font-weight-bold">Discover new drops</h2>
-      </div>
-      <div class="col-md-6 text-end">
-        <button class="btn btn-outline-info mt-6">Explore All</button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-outline-info btn-sm mt-4" disabled>
+            Stories
+          </button>
+          <h2 class="font-weight-bold">Discover new drops</h2>
+        </div>
+        <div class="col-md-6 text-end">
+          <button class="btn btn-outline-info mt-6">Explore All</button>
+        </div>
       </div>
     </div>
 

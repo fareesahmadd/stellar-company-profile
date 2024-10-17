@@ -1,5 +1,7 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, computed, ref, watch } from "vue";
+
+import { useWindowsWidth } from "../../assets/js/useWindowsWidth";
 
 //example components
 import NavbarDefault from "../..//examples/navbars/NavbarDefault.vue";
@@ -18,8 +20,50 @@ import PresentationSuperiority from "./Sections/PresentationSuperiority.vue";
 import PresentationClient from "./Sections/PresentationClient.vue";
 
 //images
-import vueMkHeader from "@/assets/img/header-home-image.svg";
+import vueMkHeader from "@/assets/img/presentations/header-home-image.svg";
+import vueMkHeaderMobile from "@/assets/img/presentations/header-home-image-mobile.svg";
+import vueMkHeaderMedium from "@/assets/img/presentations/header-home-image-medium.svg";
+import vueMkHeaderTablet from "@/assets/img/presentations/header-home-image-tablet.svg";
+
 import bottomVue from "@/assets/img/bottom-background.svg";
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
+
+const footerTitleStyle = computed(() => {
+  switch (typeSize.value) {
+    case "tablet":
+      return { marginLeft: "0px", marginRight: "90px" };
+    case "medium":
+      return { paddingRight: "130px" };
+    case "mobile":
+      return {};
+    default:
+      // desktop
+      return { marginLeft: "50px", marginRight: "200px" };
+  }
+});
+
+const backgroundImage = computed(() => {
+  switch (type.value) {
+    case "mobile":
+      return vueMkHeaderMobile;
+    case "medium":
+      return vueMkHeaderMedium;
+    case "tablet":
+      return vueMkHeaderTablet;
+    case "desktop":
+      return vueMkHeader;
+    default:
+      return vueMkHeaderMobile; // Fallback image
+  }
+});
 
 const body = document.getElementsByTagName("body")[0];
 onMounted(() => {
@@ -41,7 +85,7 @@ onUnmounted(() => {
   <Header>
     <div
       class="page-header min-vh-100"
-      :style="`background-image: url(${vueMkHeader})`"
+      :style="`background-image: url(${backgroundImage}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
       loading="lazy"
     >
       <div class="container">
@@ -49,7 +93,7 @@ onUnmounted(() => {
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
               class="text-white pt-6 me-2"
-              :style="{ display: 'inline-block ' }"
+              :style="{ display: 'inline-block' }"
             >
               <img :src="logo" alt="Logo" class="logo" />
               <br />
@@ -99,13 +143,13 @@ onUnmounted(() => {
       :style="`background-image: url(${bottomVue})`"
       loading="lazy"
     >
-      <div class="container">
-        <div class="row">
+      <div
+        class="container"
+        v-if="typeSize === 'desktop' || typeSize === 'tablet'"
+      >
+        <div :class="typeSize === 'desktop' ? 'row' : 'row py-5'">
           <div class="col-md-6">
-            <h2
-              class="font-weight-bold text-white"
-              style="margin-left: 50px; margin-right: 100px"
-            >
+            <h2 class="font-weight-bold text-white" :style="footerTitleStyle">
               Custom ERP, tailored for Your business
             </h2>
           </div>
@@ -116,6 +160,33 @@ onUnmounted(() => {
                 matches your business perfectly. Ready to customize? Let's talk!
               </p>
               <a href="/" class="btn btn mb-0 bg-light text-info"
+                >Book a Meeting</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+        v-if="typeSize === 'medium' || typeSize === 'mobile'"
+      >
+        <div class="row mt-4" :style="footerTitleStyle">
+          <h3 class="font-weight-bold text-white">
+            Custom ERP, tailored for Your business
+          </h3>
+          <div class="container">
+            <p class="text-white text-md mt-2">
+              Need something specific? Let’s craft an ERP solution that matches
+              your business perfectly. Ready to customize? Let's talk!
+            </p>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'd-flex justify-content-center'
+                  : 'd-flex justify-content-start'
+              "
+            >
+              <a href="/" class="btn mb-4 bg-light text-info mt-2"
                 >Book a Meeting</a
               >
             </div>

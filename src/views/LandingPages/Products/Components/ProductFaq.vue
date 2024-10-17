@@ -1,9 +1,21 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 import { useRoute } from "vue-router";
 const currentRouteName = computed(() => {
   return useRoute().name;
 });
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
+
 const accordionItems = computed(() => {
   switch (currentRouteName.value) {
     case "products-pos":
@@ -168,6 +180,20 @@ const accordionItemsFm = ref([
   },
 ]);
 
+const faqStyle = computed(() => {
+  switch (typeSize.value) {
+    // case "mobile":
+    //   return { marginLeft: "10px", marginRight: "50px" };
+    case "medium":
+      return { marginLeft: "10px", marginRight: "70px" };
+    case "tablet":
+      return { marginLeft: "10px", marginRight: "120px" };
+    default:
+      // desktop
+      return { marginLeft: "180px", marginRight: "160px" };
+  }
+});
+
 const toggleAccordion = (item) => {
   item.isOpen = !item.isOpen;
 };
@@ -180,18 +206,15 @@ const toggleAccordion = (item) => {
         <div class="col-md-6">
           <button
             class="btn btn-outline-info btn-sm mt-4"
-            style="margin-left: 180px; margin-right: 50px"
+            :style="faqStyle"
             disabled
           >
             FAQ
           </button>
-          <h2
-            class="font-weight-bold"
-            style="margin-left: 180px; margin-right: 50px"
-          >
+          <h2 class="font-weight-bold" :style="faqStyle">
             What people are asking most
           </h2>
-          <p style="margin-left: 180px; margin-right: 50px">
+          <p :style="faqStyle">
             Find quick answers to commonly asked questions about Stellar. Have a
             question not answered?
           </p>
@@ -221,7 +244,7 @@ const toggleAccordion = (item) => {
                           ? 'fas fa-chevron-up'
                           : 'fas fa-chevron-down'
                       "
-                      class="text-xs pt-1 position-absolute end-0 me-3"
+                      class="text-xs pt-1 position-absolute end-0"
                       aria-hidden="true"
                     ></i>
                   </button>

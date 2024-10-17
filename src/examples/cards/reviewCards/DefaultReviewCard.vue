@@ -152,7 +152,7 @@ const ratings = (rating) => {
           >
             {{ props.name }}
           </h6>
-          <div class="stats" :class="props.color ? 'text-white' : ''">
+          <div class="stats text-xs" :class="props.color ? 'text-white' : ''">
             CEO & Co-Founder of Wanderloom Labs
             <!-- <i class="far fa-clock"></i> {{ props.date }} -->
           </div>

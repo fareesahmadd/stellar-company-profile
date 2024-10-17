@@ -2,12 +2,9 @@
   <div
     class="info-horizontal border-radius-xl d-block d-md-flex"
     :class="`${color.background ?? ''}`"
+    :style="cardStyle"
   >
-    <img :src="props.imageName" style="padding-bottom: 80px" />
-    <!-- <p v-else>Gambar tidak ditemukan</p> -->
-    <!-- <i class="material-icons text-3xl" :class="`text-${icon.color}`">{{
-      icon.component
-    }}</i> -->
+    <img :src="props.imageName" :style="imageStyle" />
     <div class="ps-0 ps-md-3 mt-3 mt-md-0">
       <h5 :class="`text-${color.text ?? ''} `">{{ title }}</h5>
       <p :class="`text-${color.text ?? ''}`">
@@ -88,5 +85,50 @@ const props = defineProps({
       required: true,
     },
   },
+});
+
+import { watch, ref, computed } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+// set nav color on mobile && desktop
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
+
+// Dynamic card style based on typeSize
+const cardStyle = computed(() => {
+  switch (typeSize.value) {
+    case "tablet":
+      return { width: "auto", height: "220px" };
+    case "medium":
+      return { width: "auto", height: "200px" };
+    case "mobile":
+      return { width: "auto", height: "180px" };
+    default:
+      // desktop
+      return { width: "auto", height: "170px" };
+  }
+});
+
+// Dynamic image style based on typeSize
+const imageStyle = computed(() => {
+  switch (typeSize.value) {
+    case "tablet":
+      return { width: "32px", height: "32px" };
+    case "medium":
+      return { width: "40px", height: "40px" };
+    case "mobile":
+      return { width: "28px", height: "28px" };
+    default:
+      // desktop
+      return { width: "40px", height: "40px" };
+  }
 });
 </script>
