@@ -1,11 +1,21 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 
 //example components
 import NavbarDefault from "@/examples/navbars/NavbarDefault.vue";
 import DefaultFooter from "@/examples/footers/FooterDefault.vue";
 import Header from "../../../examples/Header.vue";
-// import FilledInfoCard from "../../examples/cards/infoCards/FilledInfoCard.vue";
 
 // import logo from "@/assets/img/stellar-logo-light.svg";
 import PresentationClient from "../../Presentation/Sections/PresentationClient.vue";
@@ -31,6 +41,9 @@ onUnmounted(() => {
 });
 </script>
 <style scoped>
+.gradient-background {
+  background: linear-gradient(to bottom, #ffffff, #e4e4f0);
+}
 .gradient-title {
   background: linear-gradient(90deg, #1b2361, #4d57a3, #949ac8);
   -webkit-background-clip: text;
@@ -74,29 +87,29 @@ onUnmounted(() => {
       </div>
     </div>
   </Header>
-  <div class="container-fluid bg-white mt-n6">
-    <SolutionsUnique class="mt-6 mb-4" />
+  <div class="bg-white mt-n6">
+    <SolutionsUnique class="container-fluid mt-6 mb-4" />
     <hr :class="`horizontal dark`" />
     <SolutionsIndustry class="mt-6 mb-4" />
-    <hr :class="`horizontal dark`" />
-    <SolutionsBenefit class="mb-4" />
-    <hr :class="`horizontal dark`" />
+    <!-- <hr :class="`horizontal dark`" /> -->
+    <SolutionsBenefit class="gradient-background mb-4" />
+    <!-- <hr :class="`horizontal dark`" /> -->
     <PresentationFaq class="mb-4" />
   </div>
 
-  <Header class="mt-n4">
+  <Header class="mt-n6">
     <div
       class="page-header min-vh-50"
       :style="`background-image: url(${bottomVue})`"
       loading="lazy"
     >
-      <div class="container">
-        <div class="row">
+      <div
+        class="container"
+        v-if="typeSize === 'desktop' || typeSize === 'tablet'"
+      >
+        <div :class="typeSize === 'desktop' ? 'row' : 'row py-5'">
           <div class="col-md-6">
-            <h2
-              class="font-weight-bold text-white"
-              style="margin-left: 50px; margin-right: 100px"
-            >
+            <h2 class="font-weight-bold text-white" :style="footerTitleStyle">
               Custom ERP, tailored for Your business
             </h2>
           </div>
@@ -107,6 +120,33 @@ onUnmounted(() => {
                 matches your business perfectly. Ready to customize? Let's talk!
               </p>
               <a href="/" class="btn btn mb-0 bg-light text-info"
+                >Book a Meeting</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+        v-if="typeSize === 'medium' || typeSize === 'mobile'"
+      >
+        <div class="row mt-4" :style="footerTitleStyle">
+          <h3 class="font-weight-bold text-white">
+            Custom ERP, tailored for Your business
+          </h3>
+          <div class="container">
+            <p class="text-white text-md mt-2">
+              Need something specific? Let’s craft an ERP solution that matches
+              your business perfectly. Ready to customize? Let's talk!
+            </p>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'd-flex justify-content-center'
+                  : 'd-flex justify-content-start'
+              "
+            >
+              <a href="/" class="btn mb-4 bg-light text-info mt-2"
                 >Book a Meeting</a
               >
             </div>

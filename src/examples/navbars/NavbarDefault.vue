@@ -196,75 +196,82 @@ watch(
                       <ul class="list-group">
                         <li class="nav-item list-group-item border-0 p-0">
                           <a
-                            class="dropdown-item py-2 ps-3 border-radius-md"
+                            class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
                             @click.prevent="
                               $router.push({ name: 'products-pos' })
                             "
                           >
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                            >
-                              <i
-                                class="material-icons opacity-6 me-2 text-md"
-                                :class="getTextColor()"
-                                >dashboard</i
+                            <img
+                              src="@/assets/img/icons/icon-tablet-fill-dark.svg"
+                              alt=""
+                              class="me-2"
+                            />
+                            <div>
+                              <h6
+                                class="dropdown-header text-dark font-weight-bolder p-0"
                               >
-                              Point Of Sales
-                            </h6>
-                            <span class="text-sm"
-                              >Streamline Sales with <br />
-                              Cutting-Edge POS <br />
-                              Solutions</span
-                            >
+                                Point Of Sales
+                              </h6>
+                              <span class="text-sm">
+                                Streamline Sales with <br />
+                                Cutting-Edge POS <br />
+                                Solutions
+                              </span>
+                            </div>
                           </a>
                         </li>
+
                         <li class="nav-item list-group-item border-0 p-0">
                           <a
-                            class="dropdown-item py-2 ps-3 border-radius-md"
+                            class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
                             @click.prevent="
                               $router.push({ name: 'products-fm' })
                             "
                           >
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                            >
-                              <i
-                                class="material-icons opacity-6 me-2 text-md"
-                                :class="getTextColor()"
-                                >dashboard</i
+                            <img
+                              src="@/assets/img/icons/icon-money-dollar-circle-fill-grey.svg"
+                              alt=""
+                              class="me-2"
+                            />
+                            <div>
+                              <h6
+                                class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                               >
-                              Financial Management
-                            </h6>
-                            <span class="text-sm"
-                              >Improve Your Finances <br />
-                              with Comprehensive <br />
-                              Solutions</span
-                            >
+                                Financial Management
+                              </h6>
+                              <span class="text-sm"
+                                >Improve Your Finances <br />
+                                with Comprehensive <br />
+                                Solutions</span
+                              >
+                            </div>
                           </a>
                         </li>
                         <li class="nav-item list-group-item border-0 p-0">
                           <a
-                            class="dropdown-item py-2 ps-3 border-radius-md"
+                            class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
                             @click.prevent="
                               $router.push({ name: 'products-bom' })
                             "
                           >
-                            <h6
-                              class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                            >
-                              <i
-                                class="material-icons opacity-6 me-2 text-md"
-                                :class="getTextColor()"
-                                >dashboard</i
+                            <img
+                              src="@/assets/img/icons/icon-computer-fill-grey.svg"
+                              alt=""
+                              class="me-2"
+                            />
+                            <div>
+                              <h6
+                                class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                               >
-                              Back-office <br />
-                              Management
-                            </h6>
-                            <span class="text-sm"
-                              >Optimize Operations <br />
-                              with Advanced <br />
-                              Management Tools</span
-                            >
+                                Back-office <br />
+                                Management
+                              </h6>
+                              <span class="text-sm"
+                                >Optimize Operations <br />
+                                with Advanced <br />
+                                Management Tools</span
+                              >
+                            </div>
                           </a>
                         </li>
                       </ul>
@@ -274,39 +281,71 @@ watch(
               </div>
               <div class="d-lg-none">
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                    >
-                      Point of Sales
-                    </h6>
-                    <span class="text-sm"
-                      >Streamline Sales with Cutting-Edge POS Solutions</span
-                    >
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
+                    @click.prevent="$router.push({ name: 'products-pos' })"
+                  >
+                    <img
+                      src="@/assets/img/icons/icon-tablet-fill-dark.svg"
+                      alt=""
+                      class="me-2"
+                    />
+                    <div>
+                      <h6
+                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
+                      >
+                        Point of Sales
+                      </h6>
+                      <span class="text-sm"
+                        >Streamline Sales with Cutting-Edge POS Solutions</span
+                      >
+                    </div>
                   </a>
                 </li>
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                    >
-                      Financial Management
-                    </h6>
-                    <span class="text-sm"
-                      >Improve Your Finances with Comprehensive Solutions</span
-                    >
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
+                    @click.prevent="$router.push({ name: 'products-fm' })"
+                  >
+                    <img
+                      src="@/assets/img/icons/icon-money-dollar-circle-fill-grey.svg"
+                      alt=""
+                      class="me-2"
+                    />
+                    <div>
+                      <h6
+                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
+                      >
+                        Financial Management
+                      </h6>
+                      <span class="text-sm"
+                        >Improve Your Finances with Comprehensive
+                        Solutions</span
+                      >
+                    </div>
                   </a>
                 </li>
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
-                    <h6
-                      class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
-                    >
-                      Back-office Management
-                    </h6>
-                    <span class="text-sm"
-                      >Optimize Operations with Advanced Management Tools</span
-                    >
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md d-flex align-items-start"
+                    @click.prevent="$router.push({ name: 'products-bom' })"
+                  >
+                    <img
+                      src="@/assets/img/icons/icon-computer-fill-grey.svg"
+                      alt=""
+                      class="me-2"
+                    />
+                    <div>
+                      <h6
+                        class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
+                      >
+                        Back-office Management
+                      </h6>
+                      <span class="text-sm"
+                        >Optimize Operations with Advanced Management
+                        Tools</span
+                      >
+                    </div>
                   </a>
                 </li>
               </div>
@@ -423,7 +462,10 @@ watch(
                 <!-- Landing Pages
                 </div> -->
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md"
+                    @click.prevent="$router.push({ name: 'about' })"
+                  >
                     <h6
                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                     >
@@ -436,7 +478,10 @@ watch(
                   </a>
                 </li>
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md"
+                    @click.prevent="$router.push({ name: 'about' })"
+                  >
                     <h6
                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                     >
@@ -448,7 +493,10 @@ watch(
                   </a>
                 </li>
                 <li class="nav-item list-group-item border-0 p-0">
-                  <a class="dropdown-item py-2 ps-3 border-radius-md" href="/">
+                  <a
+                    class="dropdown-item py-2 ps-3 border-radius-md"
+                    @click.prevent="$router.push({ name: 'blogs' })"
+                  >
                     <h6
                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
                     >

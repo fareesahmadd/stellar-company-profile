@@ -195,7 +195,7 @@
             </div>
           </div>
         </div>
-        <div class="row px-7 mt-7">
+        <!-- <div class="row px-7 mt-7">
           <div class="col-md-6 mt-3">
             <h2 class="text-dark mb-0" style="margin-right: 80px">
               Achieve success through data-driven decisions
@@ -213,12 +213,12 @@
                 border-radius: 10px;
                 overflow: hidden;
                 width: 100%;
-                height: 100%;
+                height: 380px;
               "
             ></div>
           </div>
-        </div>
-        <div class="row">
+        </div> -->
+        <!-- <div class="row">
           <div class="text-center px-11 mt-7 mb-4">
             <img
               class="opacity-7"
@@ -241,24 +241,35 @@
               CEO & Co-Founder of Wanderloom Labs
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <div class="container-fluid" v-if="currentRouteName === 'products-fm'">
       <div class="row">
-        <div class="text-center mb-5 px-11">
+        <div
+          :class="
+            typeSize === 'mobile'
+              ? 'text-center mb-5 '
+              : 'text-center mb-5 px-11'
+          "
+        >
           <button class="btn btn-outline-info btn-sm mt-4" disabled>
             Solutions
           </button>
-          <h2 class="font-weight-bold">Industry-Specific ERP Solutions</h2>
+          <h2 v-if="typeSize !== 'mobile'" class="font-weight-bold">
+            Industry-Specific ERP Solutions
+          </h2>
+          <h3 v-if="typeSize === 'mobile'" class="font-weight-bold">
+            Industry-Specific ERP Solutions
+          </h3>
           <p>
             We understand that every industry has unique challenges and
             requirements. Our ERP solutions are designed to address the specific
             needs of various sectors.
           </p>
         </div>
-        <div class="row mt-n4">
+        <div class="row mt-n4" v-if="typeSize !== 'mobile'">
           <div class="col-lg-7 mx-auto">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1" role="tablist">
@@ -284,70 +295,27 @@
           <IndustryView :id="activeTab" />
         </div>
       </div>
-      <div class="row mx-auto mt-7">
-        <h2 class="font-weight-bold" style="padding-right: 750px">
-          Every feature You need, all in a single system
-        </h2>
-        <p class="mt-4" style="margin-right: 150px">
-          Find quick answers to commonly asked questions about Stellar. Have a
-          question not answered?
-        </p>
-      </div>
-      <div class="row mx-auto">
-        <div class="col-md-6">
-          <div
-            class="card mt-4"
-            :style="`background-image: url(${financialStatements});background-size: cover; background-position: top center;`"
-            style="
-              border-radius: 10px;
-              overflow: hidden;
-              width: 630px;
-              height: 408px;
-            "
-          ></div>
-        </div>
-        <div class="col-md-6 mt-3" style="padding-left: 100px">
-          <img
-            class="opacity-7 mt-3 mb-4"
-            src="@/assets/img/icon-caption-info.svg"
-            style="height: 35px; width: 35px"
-            alt="icon-caption"
-          />
-          <p class="lead mt-4">
-            Implementing Stellar Gelora's ERP software has been a game-changer
-            for our business. From day one, the team at Stellar Gelora worked
-            closely with us to customize the system to meet our specific needs.
-            The point of sales integration has streamlined our sales processes,
-            allowing us to manage our inventory more effectively and serve our
-            customers better.
-          </p>
-          <p class="mt-5" style="font-weight: bold">Naila Agung Sarasati</p>
-          <p class="mt-n2 mb-5">CEO & Co-Founder of Wanderloom Labs</p>
-          <hr :class="`horizontal dark`" />
-          <div class="row mt-5">
-            <div class="col-lg-6">
-              <h2>25%</h2>
-              <p class="text-start">Increase in Revenue Accuracy</p>
-            </div>
-            <div class="col-lg-6">
-              <h2>100%</h2>
-              <p class="text-start">Compliance Rate</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import vueMkHeader from "@/assets/img/background-home.png";
-import overallPerformance from "@/assets/img/overall-performance-image.svg";
-import financialStatements from "@/assets/img/financial-statements-image.svg";
 
 import IndustryView from "../../Solutions/Components/IndustryView.vue";
 
-import { onMounted, computed, ref } from "vue";
+import { onMounted, computed, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 import { useRoute } from "vue-router";
 const currentRouteName = computed(() => {
   return useRoute().name;
@@ -371,3 +339,9 @@ const setActiveTab = (tabId) => {
   activeTab.value = tabId;
 };
 </script>
+
+<style scoped>
+.gradient-background {
+  background: linear-gradient(to bottom, #ffffff, #e4e4f0);
+}
+</style>

@@ -7,7 +7,18 @@
 }
 </style>
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 
 // Example components
 import NavbarDefault from "@/examples/navbars/NavbarDefault.vue";
@@ -23,6 +34,7 @@ import ProductsFeatures from "./Components/ProductsFeatures.vue";
 import ProductsSolutions from "./Components/ProductsSolutions.vue";
 import ProductsFooter from "./Components/ProductsFooter.vue";
 import ProductsNavbar from "./Components/ProductsNavbar.vue";
+import ProductsAdditional from "./Components/ProductsAdditional.vue";
 
 // Images
 import imageHeader from "@/assets/img/products-bom-header-image.svg";
@@ -48,11 +60,12 @@ onUnmounted(() => {
     style="border-radius: 0"
   ></NavbarDefault>
   <ProductsNavbar
+    v-if="typeSize !== 'mobile'"
     class="position-relative z-index-2"
     title="Back-Office Management"
   />
 
-  <Header class="pt-5" id="overview">
+  <Header :class="typeSize !== 'mobile' ? 'pt-5' : ''" id="overview">
     <div
       class="page-header min-vh-100"
       :style="`background-image: url(${imageHeader}); background-position: top;`"
@@ -86,34 +99,31 @@ onUnmounted(() => {
   </Header>
 
   <div class="container-fluid bg-white mt-n6">
-    <ProductsOpinion class="mt-6 mb-3" />
+    <ProductsOpinion class="container-fluid mt-6 mb-3" />
     <hr :class="`horizontal dark`" />
-    <ProductsFeatures class="mt-6 mb-3" id="features" />
+    <ProductsFeatures class="container-fluid mt-6 mb-3" id="features" />
 
-    <!-- <hr :class="`horizontal dark`" /> -->
     <ProductsSolutions class="mt-6 mb-4" id="solutions" />
-
-    <!-- <SolutionsIndustry class="mt-6 mb-4" /> -->
+    <ProductsAdditional class="container-fluid" />
     <AboutClient />
     <hr :class="`horizontal dark`" />
     <ProductsFooter class="mt-4 mb-4" id="resources" />
-    <!-- <hr :class="`horizontal dark`" /> -->
-    <ProductFaq class="mb-4" id="faq" />
+    <ProductFaq class="mt-2 mb-6" id="faq" />
   </div>
 
-  <Header class="mt-n4">
+  <Header class="mt-n6">
     <div
       class="page-header min-vh-50"
       :style="`background-image: url(${bottomVue})`"
       loading="lazy"
     >
-      <div class="container">
-        <div class="row">
+      <div
+        class="container"
+        v-if="typeSize === 'desktop' || typeSize === 'tablet'"
+      >
+        <div :class="typeSize === 'desktop' ? 'row' : 'row py-5'">
           <div class="col-md-6">
-            <h2
-              class="font-weight-bold text-white"
-              style="margin-left: 50px; margin-right: 100px"
-            >
+            <h2 class="font-weight-bold text-white" :style="footerTitleStyle">
               Custom ERP, tailored for Your business
             </h2>
           </div>
@@ -124,6 +134,33 @@ onUnmounted(() => {
                 matches your business perfectly. Ready to customize? Let's talk!
               </p>
               <a href="/" class="btn btn mb-0 bg-light text-info"
+                >Book a Meeting</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+        v-if="typeSize === 'medium' || typeSize === 'mobile'"
+      >
+        <div class="row mt-4" :style="footerTitleStyle">
+          <h3 class="font-weight-bold text-white">
+            Custom ERP, tailored for Your business
+          </h3>
+          <div class="container">
+            <p class="text-white text-md mt-2">
+              Need something specific? Let’s craft an ERP solution that matches
+              your business perfectly. Ready to customize? Let's talk!
+            </p>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'd-flex justify-content-center'
+                  : 'd-flex justify-content-start'
+              "
+            >
+              <a href="/" class="btn mb-4 bg-light text-info mt-2"
                 >Book a Meeting</a
               >
             </div>

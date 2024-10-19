@@ -1,7 +1,11 @@
 <template>
   <div class="container-fluid">
-    <div :class="typeSize === 'mobile' ? 'row' : 'row py-5'">
-      <div v-if="typeSize === 'mobile'" class="col-12">
+    <div
+      :class="
+        typeSize === 'mobile' || typeSize === 'medium' ? 'row' : 'row py-5'
+      "
+    >
+      <div v-if="typeSize === 'mobile' || typeSize === 'medium'" class="col-12">
         <div
           class="card mt-4"
           :style="`background-image: url(${vueMkHeader});background-size: cover; background-position: top left;`"
@@ -14,29 +18,45 @@
         ></div>
       </div>
       <div
-        :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'"
+        :class="
+          typeSize === 'mobile' || typeSize === 'medium' ? 'col-12' : 'col-md-6'
+        "
         :style="
-          typeSize === 'mobile' ? 'padding-right-0px' : 'padding-right: 40px'
+          typeSize === 'mobile' || typeSize === 'medium'
+            ? 'padding-right-0px'
+            : 'padding-right: 40px'
         "
       >
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Why choose us?
         </button>
-        <h2 v-if="typeSize !== 'mobile'" class="text-dark mb-0">
+        <h2
+          v-if="typeSize !== 'mobile' && typeSize !== 'medium'"
+          class="text-dark mb-0"
+        >
           Personalized for premium<br />
           worldwide retail
         </h2>
-        <h3 v-if="typeSize === 'mobile'" class="text-dark mb-0">
+        <h3
+          v-if="typeSize === 'mobile' || typeSize === 'medium'"
+          class="text-dark mb-0"
+        >
           Personalized for premium<br />
           worldwide retail
         </h3>
-        <p :class="typeSize === 'mobile' ? 'text-sm' : 'lead mt-4'">
+        <p
+          :class="
+            typeSize === 'mobile' || typeSize === 'medium'
+              ? 'text-sm'
+              : 'lead mt-4'
+          "
+        >
           Elevate your brand to new heights ensuring your message reaches its
           full potential and captivates your audience.
         </p>
         <hr :class="`horizontal dark mt-4 mb-4`" />
 
-        <div v-if="typeSize !== 'mobile'" class="row">
+        <div v-if="typeSize !== 'mobile' && typeSize !== 'medium'" class="row">
           <div class="col-md-6">
             <div class="card shadow-none">
               <div class="card-body">
@@ -73,7 +93,7 @@
             </div>
           </div>
         </div>
-        <div v-if="typeSize !== 'mobile'" class="row">
+        <div v-if="typeSize !== 'mobile' && typeSize !== 'medium'" class="row">
           <div class="col-md-6">
             <div class="card shadow-none">
               <div class="card-body">
@@ -109,11 +129,17 @@
             </div>
           </div>
         </div>
-        <button v-if="typeSize !== 'mobile'" class="btn btn-outline-info mt-4">
+        <button
+          v-if="typeSize !== 'mobile' && typeSize !== 'medium'"
+          class="btn btn-outline-info mt-4"
+        >
           Learn more
         </button>
       </div>
-      <div v-if="typeSize !== 'mobile'" class="col-md-6">
+      <div
+        v-if="typeSize !== 'mobile' && typeSize !== 'medium'"
+        class="col-md-6"
+      >
         <div
           class="card mt-4"
           :style="`background-image: url(${vueMkHeader});background-size: cover; background-position: left;`"
@@ -128,7 +154,7 @@
     </div>
 
     <!-- mobile -->
-    <div v-if="typeSize === 'mobile'">
+    <div v-if="typeSize === 'mobile' || typeSize === 'medium'">
       <div class="row mb-4">
         <div class="col-6">
           <img
@@ -185,7 +211,10 @@
           </p>
         </div>
       </div>
-      <button v-if="typeSize === 'mobile'" class="btn btn-outline-info mt-4">
+      <button
+        v-if="typeSize === 'mobile' || typeSize === 'medium'"
+        class="btn btn-outline-info mt-4"
+      >
         Learn more
       </button>
     </div>

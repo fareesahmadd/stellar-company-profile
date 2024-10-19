@@ -1,16 +1,33 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6" style="padding-right: 100px">
+      <div
+        :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'"
+        :style="
+          typeSize === 'mobile'
+            ? 'padding-left: 10px'
+            : typeSize === 'desktop'
+            ? 'padding-left:50px; padding-right: 200px'
+            : 'padding-left:50px'
+        "
+      >
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Products
         </button>
-        <h2 class="font-weight-bold">
+        <h2 v-if="typeSize !== 'mobile'">
           All retail solutions at Your fingertips
         </h2>
+        <h3 v-if="typeSize === 'mobile'">
+          All retail solutions at Your fingertips
+        </h3>
       </div>
-      <div class="col-md-6" style="padding-left: 100px">
-        <p class="lead mt-6">
+      <div
+        :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'"
+        :style="
+          typeSize === 'mobile' ? 'padding-left: 10px' : 'padding-left: 100px'
+        "
+      >
+        <p :class="typeSize === 'mobile' ? '' : 'lead mt-6'">
           From the moment of sale to inventory oversight and financial
           management, our solutions are designed to integrate seamlessly into
           your operations, enhancing efficiency and delivering exceptional
@@ -80,4 +97,17 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+import { ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
+</script>

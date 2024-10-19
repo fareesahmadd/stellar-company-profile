@@ -1,7 +1,11 @@
 <template>
-  <div class="container-fluid">
+  <div :class="typeSize === 'mobile' ? 'container-fluid' : 'container-fluid'">
     <div class="row">
-      <div class="text-center mb-5 px-11">
+      <div
+        :class="
+          typeSize === 'mobile' ? 'text-center' : 'text-center mb-5 px-11'
+        "
+      >
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Industry
         </button>
@@ -13,7 +17,7 @@
         </p>
       </div>
       <div class="row mt-n4">
-        <div class="col-lg-7 mx-auto">
+        <div class="col-lg-7 mx-auto" v-if="typeSize !== 'mobile'">
           <div class="nav-wrapper position-relative end-0">
             <ul
               class="nav nav-pills nav-fill p-1"
@@ -80,12 +84,22 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 
 import IndustryView from "./Components/IndustryView.vue";
 
 import setNavPills from "@/assets/js/nav-pills.js";
 
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 onMounted(() => {
   setNavPills();
 });

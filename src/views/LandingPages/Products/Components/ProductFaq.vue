@@ -182,8 +182,8 @@ const accordionItemsFm = ref([
 
 const faqStyle = computed(() => {
   switch (typeSize.value) {
-    // case "mobile":
-    //   return { marginLeft: "10px", marginRight: "50px" };
+    case "mobile":
+      return { marginLeft: "0px", marginRight: "0px" };
     case "medium":
       return { marginLeft: "10px", marginRight: "70px" };
     case "tablet":
@@ -203,7 +203,7 @@ const toggleAccordion = (item) => {
   <section class="py-5">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
+        <div :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'">
           <button
             class="btn btn-outline-info btn-sm mt-4"
             :style="faqStyle"
@@ -212,59 +212,55 @@ const toggleAccordion = (item) => {
             FAQ
           </button>
           <h2 class="font-weight-bold" :style="faqStyle">
-            What people are asking most
+            What people asking most
           </h2>
           <p :style="faqStyle">
             Find quick answers to commonly asked questions about Stellar. Have a
             question not answered?
           </p>
         </div>
-        <div class="col-md-6">
-          <div class="container">
-            <div class="accordion" id="stellarFaq">
-              <div
-                class="accordion-item"
-                v-for="(item, index) in accordionItems"
-                :key="item.id"
-              >
-                <h2 class="accordion-header" :id="'heading' + item.id">
-                  <button
-                    class="accordion-button border-bottom font-weight-bold"
-                    type="button"
-                    :data-bs-toggle="'collapse'"
-                    :data-bs-target="'#collapse' + item.id"
-                    aria-expanded="item.isOpen"
-                    :aria-controls="'collapse' + item.id"
-                    @click="toggleAccordion(item)"
-                  >
-                    {{ item.title }}
-                    <i
-                      :class="
-                        item.isOpen
-                          ? 'fas fa-chevron-up'
-                          : 'fas fa-chevron-down'
-                      "
-                      class="text-xs pt-1 position-absolute end-0"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                </h2>
-                <div
-                  :id="'collapse' + item.id"
-                  class="accordion-collapse"
-                  :class="{ show: item.isOpen }"
-                  :style="{
-                    maxHeight: item.isOpen ? '500px' : '0',
-                    opacity: item.isOpen ? 1 : 0,
-                    transition:
-                      'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out',
-                  }"
-                  :aria-labelledby="'heading' + item.id"
-                  data-bs-parent="#stellarFaq"
+        <div :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'">
+          <div class="accordion" id="stellarFaq">
+            <div
+              class="accordion-item"
+              v-for="(item, index) in accordionItems"
+              :key="item.id"
+            >
+              <h2 class="accordion-header" :id="'heading' + item.id">
+                <button
+                  class="accordion-button border-bottom font-weight-bold"
+                  type="button"
+                  :data-bs-toggle="'collapse'"
+                  :data-bs-target="'#collapse' + item.id"
+                  aria-expanded="item.isOpen"
+                  :aria-controls="'collapse' + item.id"
+                  @click="toggleAccordion(item)"
                 >
-                  <div class="accordion-body text-muted">
-                    {{ item.content }}
-                  </div>
+                  {{ item.title }}
+                  <i
+                    :class="
+                      item.isOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down'
+                    "
+                    class="text-xs pt-1 position-absolute end-0"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </h2>
+              <div
+                :id="'collapse' + item.id"
+                class="accordion-collapse"
+                :class="{ show: item.isOpen }"
+                :style="{
+                  maxHeight: item.isOpen ? '500px' : '0',
+                  opacity: item.isOpen ? 1 : 0,
+                  transition:
+                    'max-height 0.5s ease-in-out, opacity 0.5s ease-in-out',
+                }"
+                :aria-labelledby="'heading' + item.id"
+                data-bs-parent="#stellarFaq"
+              >
+                <div class="accordion-body text-muted">
+                  {{ item.content }}
                 </div>
               </div>
             </div>

@@ -3,13 +3,28 @@
   <div>Latitude: {{ lat }} , Longitude: {{ lng }}</div> -->
   <div
     ref="mapContainer"
-    class="mt-6"
-    style="width: 500px; height: 400px"
+    :class="typeSize === 'mobile' ? '' : 'mt-6'"
+    :style="
+      typeSize === 'mobile'
+        ? 'width: auto; height: 400px'
+        : 'width: auto; height: 400px'
+    "
   ></div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 import L from "leaflet";
 
 const lat = ref(-6.274738376525346);

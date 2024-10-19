@@ -20,16 +20,25 @@ const currentRouteName = computed(() => {
 });
 </script>
 
+<style scoped>
+.gradient-background {
+  background: linear-gradient(to bottom, #ffffff, #e4e4f0);
+}
+</style>
+
 <template>
   <div class="container-fluid">
-    <div class="card card-body shadow-none mx-3 mx-md-4">
+    <div
+      class="card gradient-background card-body shadow-none mx-3 mx-md-4"
+      style="border-radius: 30px"
+    >
       <div class="text-center mb-5">
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Our Values
         </button>
         <h2 class="font-weight-bold px-9">Values that guide our success</h2>
       </div>
-      <div class="row mb-4">
+      <div class="row mb-4 px-5">
         <div class="col-lg-4">
           <FilledInfoCard
             class="p-4"

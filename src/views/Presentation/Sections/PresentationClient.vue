@@ -9,15 +9,15 @@
           <img
             :src="logos.sony"
             alt="Sony Logo"
-            style="margin-left: 70px; margin-right: 70px"
+            style="margin-left: 80px; margin-right: 80px"
           />
-          <img :src="logos.sony" alt="Sony Logo" style="margin-right: 70px" />
+          <img :src="logos.sony" alt="Sony Logo" style="margin-right: 80px" />
           <img
             :src="logos.fujifilm"
             alt="Fujifilm Logo"
-            style="margin-right: 70px"
+            style="margin-right: 80px"
           />
-          <img :src="logos.canon" alt="Canon Logo" style="margin-right: 70px" />
+          <img :src="logos.canon" alt="Canon Logo" style="margin-right: 80px" />
           <img :src="logos.sigma" alt="Sigma Logo" />
         </div>
       </div>

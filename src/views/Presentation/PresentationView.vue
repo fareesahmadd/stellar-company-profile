@@ -88,47 +88,87 @@ onUnmounted(() => {
       :style="`background-image: url(${backgroundImage}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
       loading="lazy"
     >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 text-center mx-auto position-relative">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 text-center position-relative">
+            <img
+              :src="logo"
+              alt="Logo"
+              :class="
+                typeSize === 'mobile' ? 'logo  mb-3 mt-2' : 'logo mt-6 mb-3'
+              "
+            />
             <h1
-              class="text-white pt-6 me-2"
+              v-if="typeSize !== 'mobile'"
+              class="text-white me-2"
               :style="{ display: 'inline-block' }"
             >
-              <img :src="logo" alt="Logo" class="logo" />
-              <br />
               Your company deserves a great business setup
             </h1>
-            <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '200' }">
+            <h5
+              v-if="typeSize === 'mobile'"
+              class="text-white me-2"
+              :style="{ display: 'inline-block' }"
+            >
+              Your company deserves a great business setup
+            </h5>
+            <p
+              :class="
+                typeSize === 'mobile'
+                  ? 'lead text-xs text-white mt-1'
+                  : 'lead text-white px-5 mt-3'
+              "
+              :style="{ fontWeight: '200' }"
+            >
               Stellar takes your business to a whole new level with its modern
               interface, extensive library, and an array of tools and features
               essential for growth and innovation.
             </p>
             <a
               href="/"
-              class="btn btn-sm mb-0 bg-light px-5 py-3 mt-4 text-info"
+              :class="
+                typeSize === 'mobile'
+                  ? 'btn btn-sm mb-0 bg-light text-info'
+                  : 'btn btn-sm mb-0 bg-light px-5 py-3 mt-4 text-info'
+              "
               >Book a Meeting</a
             >
           </div>
-          <div class="card mt-10"></div>
-          <div class="card mt-10"></div>
-          <div class="card mt-10"></div>
+          <div
+            :class="typeSize === 'mobile' ? 'card mt-7' : 'card mt-10'"
+          ></div>
+          <div v-if="typeSize !== 'mobile'" class="card mt-10"></div>
+          <div v-if="typeSize === 'desktop'" class="card mt-10"></div>
         </div>
       </div>
     </div>
   </Header>
-  <div class="container-fluid bg-white mt-n6">
-    <PresentationClient class="mt-6 mb-4" />
+  <div class="bg-white mt-n6">
+    <PresentationClient
+      :class="
+        typeSize === 'mobile'
+          ? 'container-fluid  mt-4 mb-2'
+          : 'container-fluid mt-6 mb-4'
+      "
+    />
     <hr :class="`horizontal dark`" />
     <PresentationSuperiority class="mt-2 mb-6" />
     <hr :class="`horizontal dark`" />
     <PresentationProducts class="mt-2" />
   </div>
 
-  <div class="container-fluid bg-light">
+  <div
+    :class="
+      typeSize === 'mobile' ? 'bg-light px-3' : 'container-fluid bg-light'
+    "
+  >
     <PresentationSolutions class="mt-2" />
   </div>
-  <div class="container-fluid bg-white">
+  <div
+    :class="
+      typeSize === 'mobile' ? 'bg-white px-3' : 'container-fluid bg-white'
+    "
+  >
     <PresentationTestimonial class="mt-2 mb-6" />
   </div>
   <div class="container-fluid bg-light">

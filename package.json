@@ -13,6 +13,7 @@
     "leaflet": "^1.9.4",
     "pinia": "2.0.14",
     "prismjs": "1.28.0",
+    "swiper": "^11.1.14",
     "typed.js": "2.0.12",
     "vue": "3.2.36",
     "vue-clipboard3": "2.0.0",

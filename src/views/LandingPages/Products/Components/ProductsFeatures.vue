@@ -156,7 +156,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="mb-3">
-              <div class="card" style="border-radius: 10px">
+              <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
                   <i class="fa fa-opera fa-2x text-info"></i>
                   <h5 class="card-title mt-3">
@@ -171,7 +171,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <div class="card" style="border-radius: 10px">
+              <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
                   <i class="fa fa-file fa-2x text-info"></i>
                   <h5 class="card-title mt-3">
@@ -188,7 +188,7 @@
           </div>
           <div class="col-md-6">
             <div class="mb-3">
-              <div class="card" style="border-radius: 10px">
+              <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
                   <i class="fas fa-palette fa-2x text-info"></i>
                   <h5 class="card-title mt-3">
@@ -203,7 +203,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <div class="card" style="border-radius: 10px">
+              <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
                   <i class="fas fa-palette fa-2x text-info"></i>
                   <h5 class="card-title mt-3">
@@ -221,14 +221,44 @@
       </div>
     </div>
 
-    <div v-if="currentRouteName === 'products-fm'" class="container-fluid">
+    <div
+      v-if="currentRouteName === 'products-fm'"
+      :class="typeSize === 'mobile' ? '' : 'container-fluid'"
+    >
       <div class="row py-5">
-        <div class="text-center mb-1 px-9">
-          <button class="btn btn-outline-info btn-sm mt-5" disabled>
+        <div
+          :class="
+            typeSize === 'mobile' ||
+            typeSize === 'tablet' ||
+            typeSize === 'medium'
+              ? 'text-center mb-1 '
+              : 'text-center mb-1 px-9'
+          "
+        >
+          <button
+            :class="
+              typeSize === 'mobile'
+                ? 'btn btn-outline-info btn-sm '
+                : 'btn btn-outline-info btn-sm mt-5'
+            "
+            disabled
+          >
             Features
           </button>
-          <h2 class="font-weight-bold px-10">Master Your finances</h2>
-          <p class="mx-9">
+          <h2
+            :class="
+              typeSize === 'mobile' || typeSize === 'medium'
+                ? 'font-weight-bold '
+                : 'font-weight-bold px-10'
+            "
+          >
+            Master Your finances
+          </h2>
+          <p
+            :class="
+              typeSize === 'mobile' || typeSize === 'medium' ? '' : 'mx-9'
+            "
+          >
             Our platform is designed to provide you with the tools needed to
             manage your financial operations with precision and ease.
           </p>
@@ -313,8 +343,19 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 const currentRouteName = computed(() => {
   return useRoute().name;
 });

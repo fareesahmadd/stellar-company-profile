@@ -6,12 +6,26 @@
   >
     <img :src="props.imageName" :style="imageStyle" />
     <div class="ps-0 ps-md-3 mt-3 mt-md-0">
-      <h5 :class="`text-${color.text ?? ''} `">{{ title }}</h5>
-      <p :class="`text-${color.text ?? ''}`">
+      <h5
+        :class="
+          typeSize === 'mobile'
+            ? `text-sm text-${color.text ?? ''} `
+            : `text-${color.text ?? ''} `
+        "
+      >
+        {{ title }}
+      </h5>
+      <p
+        :class="
+          typeSize === 'mobile'
+            ? `text-xs text-${color.text ?? ''}`
+            : `text-${color.text ?? ''}`
+        "
+      >
         {{ description }}
       </p>
       <a
-        v-if="routeName !== 'presentation'"
+        v-if="routeName !== 'presentation' && routeName !== 'about'"
         :href="action.route"
         class="icon-move-right"
         :class="`text-${action.label.color ?? 'success'}`"
@@ -91,7 +105,6 @@ import { watch, ref, computed } from "vue";
 import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 
 // set nav color on mobile && desktop
-
 const { type } = useWindowsWidth();
 let typeSize = ref(type);
 
@@ -110,7 +123,7 @@ const cardStyle = computed(() => {
     case "medium":
       return { width: "auto", height: "200px" };
     case "mobile":
-      return { width: "auto", height: "180px" };
+      return { width: "auto", height: "260px" };
     default:
       // desktop
       return { width: "auto", height: "170px" };
@@ -125,7 +138,7 @@ const imageStyle = computed(() => {
     case "medium":
       return { width: "40px", height: "40px" };
     case "mobile":
-      return { width: "28px", height: "28px" };
+      return { width: "24px", height: "24px" };
     default:
       // desktop
       return { width: "40px", height: "40px" };

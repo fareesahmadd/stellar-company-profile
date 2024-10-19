@@ -55,8 +55,19 @@ const props = defineProps({
     default: "",
   },
 });
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
+
+const { type } = useWindowsWidth();
+let typeSize = ref(type);
+
+watch(
+  () => type.value,
+  (newValue) => {
+    typeSize.value = newValue;
+  }
+);
 const currentRouteName = computed(() => {
   return useRoute().name;
 });
@@ -142,13 +153,17 @@ const accordionItems = [
 ];
 </script>
 <template>
-  <section class="py-5">
-    <div class="container-fluid">
+  <section :class="typeSize === 'mobile' ? '' : 'py-5'">
+    <div :class="typeSize === 'mobile' ? '' : 'container-fluid'">
       <div
         class="row"
-        style="border-radius: 10px; overflow: hidden; height: 600px"
+        :style="
+          typeSize === 'mobile'
+            ? 'border-radius: 10px; overflow: hidden; height: 1000px'
+            : 'border-radius: 10px; overflow: hidden; height: 600px'
+        "
       >
-        <div class="col-md-6">
+        <div :class="typeSize === 'mobile' ? 'col-md-6 ' : 'col-md-6'">
           <div
             class="card"
             :style="`background-image: url(${retailImage});background-size: cover; background-position: center;`"
@@ -161,7 +176,10 @@ const accordionItems = [
           ></div>
         </div>
         <div class="col-md-6">
-          <div class="container" v-if="currentRouteName !== 'products-fm'">
+          <div
+            :class="typeSize === 'mobile' ? 'mt-3' : 'container'"
+            v-if="currentRouteName !== 'products-fm'"
+          >
             <h2 class="font-weight-bold">Reinvent Retail with energetic ERP</h2>
             <p>
               Elevate your brand to new heights ensuring your message reaches

@@ -137,28 +137,26 @@ const ratings = (rating) => {
 };
 </script>
 <template>
-  <div class="col-lg-4 col-md-8">
-    <div :class="`card ${props.color ? props.color : 'card-plain'}`">
-      <div class="card-body">
-        <img v-if="props.image" :src="props.image" :alt="props.name" />
-        <div class="author"></div>
-        <p class="mt-4" :class="props.color ? 'text-white' : ''">
-          {{ props.review }}
-        </p>
-        <div class="name">
-          <h6
-            class="mb-0 font-weight-bolder"
-            :class="props.color ? 'text-white' : ''"
-          >
-            {{ props.name }}
-          </h6>
-          <div class="stats text-xs" :class="props.color ? 'text-white' : ''">
-            CEO & Co-Founder of Wanderloom Labs
-            <!-- <i class="far fa-clock"></i> {{ props.date }} -->
-          </div>
+  <div :class="`card ${props.color ? props.color : 'card-plain'}`">
+    <div class="card-body">
+      <img v-if="props.image" :src="props.image" :alt="props.name" />
+      <div class="author"></div>
+      <p class="mt-4" :class="props.color ? 'text-white' : ''">
+        {{ props.review }}
+      </p>
+      <div class="name">
+        <h6
+          class="mb-0 font-weight-bolder"
+          :class="props.color ? 'text-white' : ''"
+        >
+          {{ props.name }}
+        </h6>
+        <div class="stats text-xs" :class="props.color ? 'text-white' : ''">
+          CEO & Co-Founder of Wanderloom Labs
+          <!-- <i class="far fa-clock"></i> {{ props.date }} -->
         </div>
-        <!-- <div class="rating mt-3" v-html="ratings(props.rating)"></div> -->
       </div>
+      <!-- <div class="rating mt-3" v-html="ratings(props.rating)"></div> -->
     </div>
   </div>
 </template>
