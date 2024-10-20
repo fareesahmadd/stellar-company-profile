@@ -2,15 +2,51 @@
   <div>
     <div v-if="currentRouteName === 'products-pos'" class="container-fluid">
       <div class="row py-5">
-        <div class="text-center mb-5 px-9">
-          <button class="btn btn-outline-info btn-sm mt-4" disabled>
-            Solutions
-          </button>
-          <h2 class="font-weight-bold px-10">
-            Empower your business with flexible POS software.
-          </h2>
+        <div class="text-center mb-5">
+          <div class="row">
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'col-1'
+                  : typeSize === 'desktop'
+                  ? 'col-4'
+                  : 'col-2'
+              "
+            ></div>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'col-10'
+                  : typeSize === 'desktop'
+                  ? 'col-4'
+                  : 'col-8'
+              "
+            >
+              <button class="btn btn-outline-info btn-sm mt-4" disabled>
+                Solutions
+              </button>
+              <h2
+                v-if="typeSize === 'desktop' || typeSize === 'tablet'"
+                class="font-weight-bold"
+              >
+                Empower your business with flexible POS software.
+              </h2>
+              <h3
+                v-if="typeSize === 'medium' || typeSize === 'mobile'"
+                class="font-weight-bold"
+              >
+                Empower your business with flexible POS software.
+              </h3>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 px-3">
+        <div
+          :class="
+            typeSize === 'mobile' || typeSize === 'medium'
+              ? 'col-12 mb-3'
+              : 'col-md-4 mb-3'
+          "
+        >
           <div
             class="card"
             :style="`background-image: url(${vueMkHeader})`"
@@ -22,72 +58,82 @@
             "
           >
             <div class="card-title px-3 py-3">
-              <i class="fas fa-palette fa-2x text-white"></i>
+              <i :class="`${cards[0].icon} fa-2x text-white`"></i>
             </div>
             <div class="card-body d-flex flex-column justify-content-end">
-              <h5 class="card-title text-white mt-8">
-                Personalized Customization
+              <h5
+                :class="
+                  typeSize === 'mobile' || typeSize === 'medium'
+                    ? 'card-title text-white mt-8 text-md'
+                    : 'card-title text-white mt-8'
+                "
+              >
+                {{ cards[0].title }}
               </h5>
-              <p class="card-text text-white" style="font-size: 15px">
-                Adapt Stellar ERP to your unique retail processes, ensuring a
-                perfect fit for your business needs.
+              <p
+                :class="
+                  typeSize === 'mobile' || typeSize === 'medium'
+                    ? 'card-text text-white text-sm'
+                    : 'card-text text-white'
+                "
+                style="font-size: 15px"
+              >
+                {{ cards[0].description }}
               </p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 px-4">
+        <div
+          :class="
+            typeSize === 'mobile' || typeSize === 'medium'
+              ? 'col-12'
+              : 'col-md-8'
+          "
+        >
           <div class="row">
-            <div class="card" style="border-radius: 10px">
-              <div class="card-body">
-                <i class="fas fa-store fa-2x text-info"></i>
-                <h5 class="card-title mt-3">Premium Meets Practical</h5>
-                <p class="card-text" style="font-size: 15px">
-                  Elevate operations with our premium retail solutions without
-                  breaking the bank.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="card" style="border-radius: 10px">
-              <div class="card-body">
-                <i class="fas fa-palette fa-2x text-info"></i>
-                <h5 class="card-title mt-3">Designed for Retail</h5>
-                <p class="card-text" style="font-size: 15px">
-                  Stellar ERP ecosystem is built to address all retail-specific
-                  challenges.
-                </p>
+            <div
+              class="col-6 mb-3"
+              v-for="(card, index) in cards.slice(1, 5)"
+              :key="index"
+            >
+              <div
+                class="card d-flex flex-column"
+                style="border-radius: 10px; margin-bottom: 20px; height: 100%"
+              >
+                <div class="card-body d-flex flex-column flex-grow-1">
+                  <i :class="`${card.icon} fa-2x text-info`"></i>
+                  <h5
+                    :class="
+                      typeSize === 'mobile' || typeSize === 'medium'
+                        ? 'card-title mt-3 text-md'
+                        : 'card-title mt-3'
+                    "
+                  >
+                    {{ card.title }}
+                  </h5>
+                  <p
+                    :class="
+                      typeSize === 'mobile' || typeSize === 'medium'
+                        ? 'card-text text-sm'
+                        : 'card-text'
+                    "
+                    style="font-size: 15px"
+                  >
+                    {{ card.description }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 px-4">
-          <div class="row">
-            <div class="card" style="border-radius: 10px">
-              <div class="card-body">
-                <i class="fas fa-palette fa-2x text-info"></i>
-                <h5 class="card-title mt-3">Worldwide Scalability</h5>
-                <p class="card-text" style="font-size: 15px">
-                  Expand with a system designed for multiple locations,
-                  currencies, and regulations.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="card" style="border-radius: 10px">
-              <div class="card-body">
-                <i class="fas fa-palette fa-2x text-info"></i>
-                <h5 class="card-title mt-3">24/7 Customer Support</h5>
-                <p class="card-text" style="font-size: 15px">
-                  Our dedicated team of retail ERP experts is always available
-                  to assist you.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-center px-11 mt-7 mb-4">
+
+        <div
+          :class="
+            typeSize === 'desktop'
+              ? 'text-center px-11 mt-7 mb-4'
+              : 'text-center  mt-7 mb-4'
+          "
+        >
           <img
             class="opacity-7"
             src="@/assets/img/icon-caption-info.svg"
@@ -95,8 +141,14 @@
             alt="icon-caption"
           />
         </div>
-        <div class="text-center mb-5 px-11">
-          <p class="px-4">
+        <div
+          :class="
+            typeSize === 'desktop'
+              ? 'text-center mb-5 px-11'
+              : 'text-center mb-5'
+          "
+        >
+          <p :class="typeSize === 'desktop' ? 'px-4' : ''">
             Implementing Stellar Gelora's ERP software has been a game-changer
             for our business. From day one, the team at Stellar Gelora worked
             closely with us to customize the system to meet our specific needs.
@@ -112,13 +164,25 @@
       </div>
     </div>
 
-    <div v-if="currentRouteName === 'products-bom'" class="container-fluid">
-      <div class="row py-5">
-        <div class="text-center mb-1 px-9">
+    <div
+      v-if="currentRouteName === 'products-bom'"
+      :class="typeSize === 'mobile' ? '' : 'container-fluid'"
+    >
+      <div :class="typeSize === 'mobile' ? 'row ' : 'row py-5'">
+        <div
+          :class="
+            typeSize === 'mobile' ? 'text-center mb-1' : 'text-center mb-1'
+          "
+        >
           <button class="btn btn-outline-info btn-sm mt-4" disabled>
             Solutions
           </button>
-          <h2 class="font-weight-bold px-10">We’re better. Here’s why...</h2>
+          <h2 v-if="typeSize !== 'mobile'" class="font-weight-bold">
+            We’re better. Here’s why...
+          </h2>
+          <h3 v-if="typeSize === 'mobile'" class="'font-weight-bold '">
+            We’re better. Here’s why...
+          </h3>
         </div>
         <div class="row">
           <div class="col-md-4 mb-4">
@@ -249,7 +313,7 @@
       <div class="row">
         <div
           :class="
-            typeSize === 'mobile'
+            typeSize === 'mobile' || typeSize === 'medium'
               ? 'text-center mb-5 '
               : 'text-center mb-5 px-11'
           "
@@ -270,7 +334,7 @@
           </p>
         </div>
         <div class="row mt-n4" v-if="typeSize !== 'mobile'">
-          <div class="col-lg-7 mx-auto">
+          <div :class="typeSize === 'medium' ? 'col-12 ' : 'col-lg-12 mx-auto'">
             <div class="nav-wrapper position-relative end-0">
               <ul class="nav nav-pills nav-fill p-1" role="tablist">
                 <li
@@ -338,10 +402,51 @@ const industries = [
 const setActiveTab = (tabId) => {
   activeTab.value = tabId;
 };
+
+const cards = ref([
+  {
+    icon: "fas fa-palette",
+    title: "Personalized Customization",
+    description:
+      "Adapt Stellar ERP to your unique retail processes, ensuring a perfect fit for your business needs.",
+  },
+  {
+    icon: "fas fa-store",
+    title: "Premium Meets Practical",
+    description:
+      "Elevate operations with our premium retail solutions without breaking the bank.",
+  },
+  {
+    icon: "fas fa-palette",
+    title: "Designed for Retail",
+    description:
+      "Stellar ERP ecosystem is built to address all retail-specific challenges.",
+  },
+  {
+    icon: "fas fa-globe",
+    title: "Worldwide Scalability",
+    description:
+      "Expand with a system designed for multiple locations, currencies, and regulations.",
+  },
+  {
+    icon: "fas fa-headset",
+    title: "24/7 Customer Support",
+    description:
+      "Our dedicated team of retail ERP experts is always available to assist you.",
+  },
+]);
 </script>
 
 <style scoped>
 .gradient-background {
   background: linear-gradient(to bottom, #ffffff, #e4e4f0);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Memastikan card mengisi ruang kolom */
+}
+.card-body {
+  flex-grow: 1; /* Membuat body card tumbuh untuk mengisi ruang yang tersedia */
 }
 </style>

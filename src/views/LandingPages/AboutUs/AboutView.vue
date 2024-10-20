@@ -95,54 +95,56 @@ onUnmounted(() => {
             > -->
           </div>
         </div>
-        <div class="row mt-7">
-          <div class="col-4">
-            <div
-              class="card blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageOne});background-size: cover; background-position: center;`"
-            ></div>
-          </div>
-          <div class="col-4 mt-7">
-            <div
-              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageTwo});background-size: cover; background-position: center;`"
-            ></div>
-          </div>
-          <div class="col-4">
-            <div
-              class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
-              style="
-                border-radius: 10px;
-                overflow: hidden;
-                width: 342px;
-                height: 440px;
-              "
-              :style="`background-image: url(${headerImageThree});background-size: cover; background-position: center;`"
-            ></div>
+        <div class="container">
+          <div class="row mt-7">
+            <div class="col-4">
+              <div
+                class="card blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+                style="
+                  border-radius: 10px;
+                  overflow: hidden;
+                  width: 100%;
+                  height: 440px;
+                "
+                :style="`background-image: url(${headerImageOne});background-size: cover; background-position: center;`"
+              ></div>
+            </div>
+            <div class="col-4 mt-7">
+              <div
+                class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+                style="
+                  border-radius: 10px;
+                  overflow: hidden;
+                  width: 100%;
+                  height: 440px;
+                "
+                :style="`background-image: url(${headerImageTwo});background-size: cover; background-position: center;`"
+              ></div>
+            </div>
+            <div class="col-4">
+              <div
+                class="card d-flex blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"
+                style="
+                  border-radius: 10px;
+                  overflow: hidden;
+                  width: 100%;
+                  height: 440px;
+                "
+                :style="`background-image: url(${headerImageThree});background-size: cover; background-position: center;`"
+              ></div>
+            </div>
           </div>
         </div>
         <AboutClient class="mt-0 mb-0" />
       </div>
     </div>
   </Header>
-  <div class="container-fluid bg-white mt-n6">
-    <AboutStory class="mt-6 mb-4 px-7" />
+  <div class="bg-white mt-n6">
+    <AboutStory class="container mt-6 mb-4" />
     <hr :class="`horizontal dark`" />
     <AboutCounter class="mt-5 px-7" />
     <AboutValues class="mb-4" />
-    <hr :class="`horizontal dark`" />
+    <!-- <hr :class="`horizontal dark`" /> -->
 
     <PresentationFaq class="mb-4" />
   </div>

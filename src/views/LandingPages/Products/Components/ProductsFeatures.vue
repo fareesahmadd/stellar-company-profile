@@ -2,16 +2,73 @@
   <div>
     <div v-if="currentRouteName === 'products-pos'" class="container-fluid">
       <div class="row">
-        <div class="text-center mb-5 px-11">
+        <div class="text-center mb-5">
           <button class="btn btn-outline-info btn-sm mt-4" disabled>
             Features
           </button>
-          <h2 class="font-weight-bold">Industry-Specific ERP Solutions</h2>
-          <p>
-            We understand that every industry has unique challenges and
-            requirements. Our ERP solutions are designed to address the specific
-            needs of various sectors.
-          </p>
+          <div class="row">
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'col-1'
+                  : typeSize === 'desktop'
+                  ? 'col-4'
+                  : 'col-3'
+              "
+            ></div>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'col-10'
+                  : typeSize === 'desktop'
+                  ? 'col-4'
+                  : 'col-6'
+              "
+            >
+              <h2
+                v-if="typeSize === 'desktop' || typeSize === 'tablet'"
+                class="font-weight-bold"
+              >
+                Complete point of sales In one stop
+              </h2>
+              <h3
+                v-if="typeSize === 'mobile' || typeSize === 'medium'"
+                class="font-weight-bold"
+              >
+                Complete point of sales In one stop
+              </h3>
+            </div>
+            <!-- <div class="col-3"></div> -->
+          </div>
+          <div class="row">
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? ''
+                  : typeSize === 'desktop'
+                  ? 'col-2'
+                  : 'col-1'
+              "
+            ></div>
+            <div
+              :class="
+                typeSize === 'mobile'
+                  ? 'col-12'
+                  : typeSize === 'desktop'
+                  ? 'col-8'
+                  : 'col-10'
+              "
+            >
+              <p
+                :class="
+                  typeSize === 'mobile' || typeSize === 'medium' ? '' : ''
+                "
+              >
+                Say goodbye to juggling multiple tools—our POS platform is your
+                one-stop-shop for a smarter, more efficient retail experience.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -137,8 +194,11 @@
     </div>
 
     <!-- if route is product back office management -->
-    <div v-if="currentRouteName === 'products-bom'" class="row py-3 px-5">
-      <div class="col-md-6 px-3">
+    <div
+      v-if="currentRouteName === 'products-bom'"
+      :class="typeSize === 'mobile' ? 'row' : 'row py-3 px-5'"
+    >
+      <div class="col-md-6 px-3" v-if="typeSize === 'desktop'">
         <button class="btn btn-outline-info btn-sm mt-4" disabled>
           Features
         </button>
@@ -152,68 +212,92 @@
         </p>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6" v-if="typeSize === 'desktop'">
         <div class="row">
           <div class="col-md-6">
-            <div class="mb-3">
+            <div
+              v-for="(feature, index) in bomFeatures.slice(0, 2)"
+              :key="index"
+              class="mb-3"
+            >
               <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
-                  <i class="fa fa-opera fa-2x text-info"></i>
-                  <h5 class="card-title mt-3">
-                    Customizable <br />
-                    Dashboards
-                  </h5>
+                  <i :class="`fa ${feature.icon} fa-2x text-info`"></i>
+                  <h5 class="card-title mt-3">{{ feature.title }}</h5>
                   <p class="card-text" style="font-size: 15px">
-                    Gain real-time insights into your operations with
-                    customizable dashboards that highlight top-notch data.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="mb-3">
-              <div class="card" style="border-radius: 10px; height: 261px">
-                <div class="card-body">
-                  <i class="fa fa-file fa-2x text-info"></i>
-                  <h5 class="card-title mt-3">
-                    Document <br />
-                    Management
-                  </h5>
-                  <p class="card-text" style="font-size: 15px">
-                    Manage all your documents and files in one secure,
-                    centralized location, ensuring easy access and organization.
+                    {{ feature.description }}
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="mb-3">
+            <div
+              v-for="(feature, index) in bomFeatures.slice(2)"
+              :key="index"
+              class="mb-3"
+            >
               <div class="card" style="border-radius: 10px; height: 261px">
                 <div class="card-body">
-                  <i class="fas fa-palette fa-2x text-info"></i>
-                  <h5 class="card-title mt-3">
-                    Payroll <br />
-                    Processing
-                  </h5>
+                  <i :class="`fa ${feature.icon} fa-2x text-info`"></i>
+                  <h5 class="card-title mt-3">{{ feature.title }}</h5>
                   <p class="card-text" style="font-size: 15px">
-                    Simplify payroll management with automated calculations,
-                    deductions, and timely disbursements.
+                    {{ feature.description }}
                   </p>
                 </div>
               </div>
             </div>
-            <div class="mb-3">
-              <div class="card" style="border-radius: 10px; height: 261px">
-                <div class="card-body">
-                  <i class="fas fa-palette fa-2x text-info"></i>
-                  <h5 class="card-title mt-3">
-                    Vendor and Supplier Management
-                  </h5>
-                  <p class="card-text" style="font-size: 15px">
-                    Efficiently manage contracts, and payments with vendors and
-                    suppliers through integrated tools.
-                  </p>
-                </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tablet Mode -->
+      <div v-if="typeSize !== 'desktop'" class="col-12">
+        <button class="btn btn-outline-info btn-sm mt-4" disabled>
+          Features
+        </button>
+        <h2 class="text-dark mb-0">
+          Get Your ops in gear with elite back-office solutions
+        </h2>
+        <p class="lead mt-4">
+          By centralizing and automating key processes, Stellar’s helps you
+          reduce errors, save time, and empower your team to focus on strategic
+          growth.
+        </p>
+
+        <div class="row mt-4">
+          <div
+            v-for="(feature, index) in bomFeatures"
+            :key="index"
+            :class="typeSize === 'tablet' ? 'col-3 mb-3' : 'col-6 mb-3'"
+          >
+            <div
+              class="card"
+              :style="
+                typeSize === 'medium'
+                  ? 'border-radius: 10px; height: 250px'
+                  : 'border-radius: 10px; height: 330px'
+              "
+            >
+              <div class="card-body">
+                <i :class="`fa ${feature.icon}  fa-2x text-info`"></i>
+                <h5
+                  :class="
+                    typeSize === 'mobile'
+                      ? 'card-title mt-3 text-sm'
+                      : 'card-title mt-3 '
+                  "
+                >
+                  {{ feature.title }}
+                </h5>
+                <p
+                  :class="
+                    typeSize === 'mobile' ? 'card-text text-sm' : 'card-text '
+                  "
+                  style="font-size: 15px"
+                >
+                  {{ feature.description }}
+                </p>
               </div>
             </div>
           </div>
@@ -359,4 +443,31 @@ watch(
 const currentRouteName = computed(() => {
   return useRoute().name;
 });
+
+const bomFeatures = ref([
+  {
+    title: "Customizable Dashboards",
+    description:
+      "Gain real-time insights into your operations with customizable dashboards that highlight top-notch data.",
+    icon: "fa-opera",
+  },
+  {
+    title: "Document Management",
+    description:
+      "Manage all your documents and files in one secure, centralized location, ensuring easy access and organization.",
+    icon: "fa-file",
+  },
+  {
+    title: "Payroll Processing",
+    description:
+      "Simplify payroll management with automated calculations, deductions, and timely disbursements.",
+    icon: "fa-palette",
+  },
+  {
+    title: "Vendor and Supplier Management",
+    description:
+      "Efficiently manage contracts, and payments with vendors and suppliers through integrated tools.",
+    icon: "fa-palette",
+  },
+]);
 </script>

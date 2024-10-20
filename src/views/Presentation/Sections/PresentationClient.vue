@@ -4,21 +4,23 @@
       <div class="col-md-3 d-flex flex-column align-items-center">
         <p class="lead mt-3">Trusted by industry leaders</p>
       </div>
-      <div class="col-md-9 d-flex flex-column justify-content-center">
-        <div class="d-flex flex-wrap">
-          <img
-            :src="logos.sony"
-            alt="Sony Logo"
-            style="margin-left: 80px; margin-right: 80px"
-          />
-          <img :src="logos.sony" alt="Sony Logo" style="margin-right: 80px" />
-          <img
-            :src="logos.fujifilm"
-            alt="Fujifilm Logo"
-            style="margin-right: 80px"
-          />
-          <img :src="logos.canon" alt="Canon Logo" style="margin-right: 80px" />
-          <img :src="logos.sigma" alt="Sigma Logo" />
+      <div class="col-md-9 mt-3">
+        <div class="row">
+          <div class="col text-center">
+            <img :src="logos.sony" alt="Sony Logo" class="logo" />
+          </div>
+          <div class="col text-center">
+            <img :src="logos.sony" alt="Sony Logo" class="logo" />
+          </div>
+          <div class="col text-center">
+            <img :src="logos.fujifilm" alt="Fujifilm Logo" class="logo" />
+          </div>
+          <div class="col text-center">
+            <img :src="logos.canon" alt="Canon Logo" class="logo" />
+          </div>
+          <div class="col text-center">
+            <img :src="logos.sigma" alt="Sigma Logo" class="logo" />
+          </div>
         </div>
       </div>
     </div>

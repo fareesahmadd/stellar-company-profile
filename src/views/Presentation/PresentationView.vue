@@ -84,13 +84,23 @@ onUnmounted(() => {
   />
   <Header>
     <div
-      class="page-header min-vh-100"
+      :class="
+        typeSize === 'mobile'
+          ? 'page-header min-vh-75 mt-n7'
+          : 'page-header min-vh-75'
+      "
       :style="`background-image: url(${backgroundImage}); background-size: cover; background-position: center; background-repeat: no-repeat;`"
       loading="lazy"
     >
       <div class="container-fluid">
         <div class="row justify-content-center">
-          <div class="col-lg-7 text-center position-relative">
+          <div
+            :class="
+              typeSize === 'mobile'
+                ? 'col-lg-7 text-center mt-n10 position-absolute'
+                : 'col-lg-7 text-center position-absolute'
+            "
+          >
             <img
               :src="logo"
               alt="Logo"

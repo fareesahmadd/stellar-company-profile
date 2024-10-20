@@ -88,10 +88,10 @@ const backgroundImage = computed(() => {
     <div
       :class="
         typeSize === 'desktop'
-          ? 'page-header min-vh-100 mt-n8'
+          ? 'page-header min-vh-75 mt-n7'
           : typeSize === 'mobile'
-          ? 'page-header min-vh-100 mt-n6'
-          : 'page-header min-vh-100'
+          ? 'page-header min-vh-75 '
+          : 'page-header min-vh-75 '
       "
       :style="`background-image: url(${backgroundImage}); background-size:cover; background-position: top center; background-repeat: no-repeat;`"
       loading="lazy"
@@ -99,15 +99,13 @@ const backgroundImage = computed(() => {
       <div
         :class="
           typeSize === 'mobile'
-            ? 'container mt-5 '
+            ? 'container'
             : typeSize === 'medium'
-            ? 'container mt-5 mb-8'
-            : 'container mt-5 mb-10'
+            ? 'container '
+            : 'container mb-10'
         "
       >
-        <div
-          :class="typeSize === 'desktop' ? 'row mt-10 mb-10' : 'row mt-5 mb-10'"
-        >
+        <div :class="typeSize === 'desktop' ? 'row mt-10 mb-10' : 'row mb-10'">
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
               v-if="typeSize === 'desktop'"
@@ -120,9 +118,7 @@ const backgroundImage = computed(() => {
               :class="
                 typeSize === 'tablet'
                   ? 'gradient-title text-dark me-2 px-6'
-                  : typeSize === 'mobile'
-                  ? 'gradient-title text-dark me-2 '
-                  : 'gradient-title text-dark me-2 px-8'
+                  : 'gradient-title text-dark me-2 '
               "
             >
               Get real-time analytics keep stay sharp.
@@ -131,7 +127,7 @@ const backgroundImage = computed(() => {
               :class="
                 typeSize === 'desktop'
                   ? 'lead  text-dark mt-3'
-                  : 'lead text-md text-dark mt-3'
+                  : 'lead text-md text-dark mt-3 text-sm'
               "
               :style="{ fontWeight: '200' }"
             >
@@ -149,25 +145,31 @@ const backgroundImage = computed(() => {
               >Book a Meeting</a
             >
           </div>
-          <!-- <div v-if="typeSize !== 'desktop'" class="card mt-5"></div> -->
 
-          <!-- <div v-if="typeSize !== 'desktop'" class="card mt-5"></div> -->
-          <!-- <div v-if="typeSize !== 'desktop'" class="card mt-5"></div> -->
-          <!-- <div v-if="typeSize !== 'desktop'" class="card mt-5"></div> -->
-
-          <div v-if="typeSize === 'desktop'" class="card mt-10"></div>
+          <div v-if="typeSize !== 'tablet'" class="card mt-10"></div>
+          <!-- <div v-if="typeSize === 'desktop'" class="card mt-10"></div> -->
         </div>
       </div>
     </div>
   </Header>
-  <div class="container-fluid" v-bind:style="{ backgroundColor: '#0f1423' }">
+  <div
+    :class="
+      typeSize === 'mobile' || typeSize === 'medium'
+        ? 'container-fluid mt-n8'
+        : 'container-fluid'
+    "
+    v-bind:style="{ backgroundColor: '#0f1423' }"
+  >
     <AboutClient />
   </div>
   <div class="container-fluid bg-white mt-n6">
-    <ProductsFeatures class="mt-6 mb-3" id="features" />
-    <hr :class="`horizontal dark`" id="solutions" />
+    <ProductsFeatures
+      :class="typeSize === 'mobile' ? 'mt-1 ' : 'mt-6 mb-3'"
+      id="features"
+    />
+    <hr :class="`horizontal dark `" id="solutions" />
     <ProductsSolutions
-      class="mt-6 mb-4"
+      :class="typeSize === 'mobile' ? '' : 'mt-6 mb-4'"
       style="position: relative; z-index: 0"
     />
   </div>

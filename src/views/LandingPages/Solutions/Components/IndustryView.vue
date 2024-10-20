@@ -154,7 +154,11 @@ const accordionItems = [
 </script>
 <template>
   <section :class="typeSize === 'mobile' ? '' : 'py-5'">
-    <div :class="typeSize === 'mobile' ? '' : 'container-fluid'">
+    <div
+      :class="
+        typeSize === 'mobile' || typeSize === 'medium' ? '' : 'container-fluid'
+      "
+    >
       <div
         class="row"
         :style="

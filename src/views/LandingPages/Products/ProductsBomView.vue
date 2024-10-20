@@ -68,7 +68,7 @@ onUnmounted(() => {
   <Header :class="typeSize !== 'mobile' ? 'pt-5' : ''" id="overview">
     <div
       class="page-header min-vh-100"
-      :style="`background-image: url(${imageHeader}); background-position: top;`"
+      :style="`background-image: url(${imageHeader}); background-size: cover;background-position: top;`"
       loading="lazy"
     >
       <div class="container">
@@ -98,16 +98,32 @@ onUnmounted(() => {
     </div>
   </Header>
 
-  <div class="container-fluid bg-white mt-n6">
-    <ProductsOpinion class="container-fluid mt-6 mb-3" />
+  <div
+    :class="
+      typeSize === 'medium' || typeSize === 'tablet'
+        ? ' bg-white mt-n6'
+        : 'container-fluid bg-white mt-n6'
+    "
+  >
+    <ProductsOpinion class="mt-6 mb-3" />
     <hr :class="`horizontal dark`" />
-    <ProductsFeatures class="container-fluid mt-6 mb-3" id="features" />
+    <ProductsFeatures
+      :class="
+        typeSize !== 'desktop' ? ' mt-6 mb-3' : 'container-fluid mt-6 mb-3'
+      "
+      id="features"
+    />
 
     <ProductsSolutions class="mt-6 mb-4" id="solutions" />
-    <ProductsAdditional class="container-fluid" />
+    <ProductsAdditional
+      :class="typeSize === 'mobile' ? '' : 'container-fluid'"
+    />
     <AboutClient />
     <hr :class="`horizontal dark`" />
-    <ProductsFooter class="mt-4 mb-4" id="resources" />
+    <ProductsFooter
+      :class="typeSize === 'mobile' ? 'container-fluid mt-4 mb-4' : 'mt-4 mb-4'"
+      id="resources"
+    />
     <ProductFaq class="mt-2 mb-6" id="faq" />
   </div>
 

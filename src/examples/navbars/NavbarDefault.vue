@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import { ref, watch } from "vue";
 import { useWindowsWidth } from "../../assets/js/useWindowsWidth";
+import { useRouter } from "vue-router";
 
 // images
 import ArrDark from "@/assets/img/down-arrow-dark.svg";
@@ -96,6 +97,24 @@ watch(
     }
   }
 );
+
+const router = useRouter();
+const isCollapsed = ref(true); // State untuk mengelola status toggler
+
+const toggleNavbar = () => {
+  isCollapsed.value = !isCollapsed.value; // Toggle state
+};
+
+// Fungsi untuk mengatur navigasi dan menutup navbar dengan parameter routeName
+const handleRouteClick = (routeName) => {
+  setToDefault(); // Panggil fungsi untuk mengatur ke keadaan awal
+  router.push({ name: routeName }); // Navigasi ke halaman berdasarkan parameter
+};
+
+// Fungsi untuk mengatur ke keadaan awal
+const setToDefault = () => {
+  isCollapsed.value = true; // Set ke true untuk menutup navbar
+};
 </script>
 <template>
   <nav
@@ -146,12 +165,13 @@ watch(
       </RouterLink>
       <button
         class="navbar-toggler shadow-none ms-2"
+        :class="{ collapsed: isCollapsed }"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navigation"
         aria-controls="navigation"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        :aria-expanded="!isCollapsed"
+        @click="toggleNavbar"
       >
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
@@ -480,7 +500,7 @@ watch(
                 <li class="nav-item list-group-item border-0 p-0">
                   <a
                     class="dropdown-item py-2 ps-3 border-radius-md"
-                    @click.prevent="$router.push({ name: 'about' })"
+                    @click.prevent="handleRouteClick('about')"
                   >
                     <h6
                       class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0"
