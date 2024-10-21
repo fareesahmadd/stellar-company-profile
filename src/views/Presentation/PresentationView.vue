@@ -149,6 +149,8 @@ onUnmounted(() => {
           ></div>
           <div v-if="typeSize !== 'mobile'" class="card mt-10"></div>
           <div v-if="typeSize === 'desktop'" class="card mt-10"></div>
+          <div v-if="typeSize === 'desktop'" class="card mt-10"></div>
+          <div v-if="typeSize === 'desktop'" class="card mt-10"></div>
         </div>
       </div>
     </div>
