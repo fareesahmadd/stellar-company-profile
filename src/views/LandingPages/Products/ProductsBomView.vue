@@ -73,17 +73,16 @@ onUnmounted(() => {
     >
       <div class="container">
         <div class="row mt-5">
-          <div class="col-lg-6 mb-10">
+          <div class="col-lg-6 mb-10 pe-7">
             <h1
               class="gradient-title text-dark pt-6 me-2"
               :style="{ display: 'inline-block ' }"
             >
-              Enhance every purchase
+              Seamlessly manage operations
             </h1>
             <p class="lead mt-3" :style="{ fontWeight: '200' }">
-              Make every purchase a win, with a POS system that’s as smooth as
-              your brand. It’s time to turn up the experience and make every
-              sale unforgettable.
+              Stellar's back-office app smooths out your money moves. This tool
+              is a no-brainer for handling your business cash flow
             </p>
             <a
               href="/"

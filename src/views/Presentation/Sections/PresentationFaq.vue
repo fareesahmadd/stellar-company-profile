@@ -66,7 +66,7 @@ const faqStyle = computed(() => {
       return { marginLeft: "10px", marginRight: "120px" };
     default:
       // desktop
-      return { marginLeft: "180px", marginRight: "160px" };
+      return { marginLeft: "0px", marginRight: "0px" };
   }
 });
 
@@ -78,7 +78,16 @@ const toggleAccordion = (item) => {
   <section class="py-5">
     <div class="container-fluid">
       <div class="row">
-        <div :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'">
+        <div v-if="typeSize === 'desktop'" class="col-1"></div>
+        <div
+          :class="
+            typeSize === 'mobile'
+              ? 'col-12'
+              : typeSize === 'desktop'
+              ? 'col-md-3'
+              : 'col-md-6'
+          "
+        >
           <button
             class="btn btn-outline-info btn-sm mt-4"
             :style="faqStyle"
@@ -94,6 +103,8 @@ const toggleAccordion = (item) => {
             question not answered?
           </p>
         </div>
+        <div v-if="typeSize === 'desktop'" class="col-2"></div>
+
         <div :class="typeSize === 'mobile' ? 'col-12' : 'col-md-6'">
           <div class="accordion" id="stellarFaq">
             <div
@@ -103,7 +114,7 @@ const toggleAccordion = (item) => {
             >
               <h2 class="accordion-header" :id="'heading' + item.id">
                 <button
-                  class="accordion-button border-bottom font-weight-bold"
+                  class="accordion-button border-bottom font-weight-bold lead"
                   type="button"
                   :data-bs-toggle="'collapse'"
                   :data-bs-target="'#collapse' + item.id"

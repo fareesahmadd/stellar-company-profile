@@ -13,7 +13,12 @@
           "
         >
           <div class="card-body d-flex flex-column" style="flex: 1">
-            <i class="fas fa-store fa-2x text-info"></i>
+            <img
+              class="float-end"
+              src="@/assets/img/products/collection-fill.svg"
+              :style="iconStyle"
+              alt="icon-caption"
+            />
             <h5
               :class="
                 typeSize === 'mobile'
@@ -50,7 +55,12 @@
           "
         >
           <div class="card-body d-flex flex-column" style="flex: 1">
-            <i class="fas fa-palette fa-2x text-info"></i>
+            <img
+              class="float-end"
+              src="@/assets/img/products/person-badge-fill.svg"
+              :style="iconStyle"
+              alt="icon-caption"
+            />
             <h5
               :class="
                 typeSize === 'mobile'
@@ -79,7 +89,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 
 const { type } = useWindowsWidth();
@@ -91,4 +101,18 @@ watch(
     typeSize.value = newValue;
   }
 );
+
+const iconStyle = computed(() => {
+  switch (typeSize.value) {
+    case "medium":
+      return { width: "32px", height: "32px" };
+    case "tablet":
+      return { width: "40px", height: "40px" };
+    case "mobile":
+      return { width: "24px", height: "24px" };
+    default:
+      // desktop
+      return { width: "40px", height: "40px" };
+  }
+});
 </script>

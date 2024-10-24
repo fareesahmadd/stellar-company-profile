@@ -29,7 +29,7 @@
             <button class="btn btn-outline-info btn-sm mt-4" disabled>
               Insights
             </button>
-            <p class="card-title font-weight-bold text-dark">
+            <p class="card-title lead font-weight-bold text-dark">
               {{ item.title }}
             </p>
             <div class="row">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="navbar navbar-expand justify-content-between bg-info px-5 position-fixed z-index-sticky top-0"
+      class="navbar navbar-expand justify-content-between bg-info px-6 position-fixed z-index-sticky top-0"
       style="border-radius: 0; margin-top: 62px; width: 100%; height: 50px"
     >
       <a v-if="isProductPage" class="navbar-brand text-white" href="#">{{

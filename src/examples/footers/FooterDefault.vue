@@ -162,10 +162,20 @@ defineProps({
           v-for="{ name, items } of menus"
           :key="name"
         >
-          <h6 class="text-sm">{{ name }}</h6>
+          <h6 :class="typeSize === 'mobile' ? 'text-sm' : 'text-md'">
+            {{ name }}
+          </h6>
           <ul class="flex-column ms-n3 nav">
             <li class="nav-item" v-for="item of items" :key="item.name">
-              <a class="nav-link" :href="item.href" target="_blank">
+              <a
+                :class="
+                  typeSize === 'mobile'
+                    ? 'nav-link text-sm'
+                    : 'nav-link text-md'
+                "
+                :href="item.href"
+                target="_blank"
+              >
                 {{ item.name }}
               </a>
             </li>

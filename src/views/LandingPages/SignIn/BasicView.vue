@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 
 // example components
-import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
+// import DefaultNavbar from "@/examples/navbars/NavbarDefault.vue";
 import Header from "@/examples/Header.vue";
 
 //Vue Material Kit 2 components
@@ -17,16 +17,9 @@ onMounted(() => {
 });
 </script>
 <template>
-  <DefaultNavbar transparent />
+  <!-- <DefaultNavbar transparent /> -->
   <Header>
-    <div
-      class="page-header align-items-start min-vh-100"
-      :style="{
-        backgroundImage:
-          'url(https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80)'
-      }"
-      loading="lazy"
-    >
+    <div class="page-header align-items-start min-vh-100" loading="lazy">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container my-auto">
         <div class="row">
@@ -36,14 +29,14 @@ onMounted(() => {
                 class="card-header p-0 position-relative mt-n4 mx-3 z-index-2"
               >
                 <div
-                  class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1"
+                  class="bg-gradient-info shadow-success border-radius-lg py-3 pe-1"
                 >
                   <h4
                     class="text-white font-weight-bolder text-center mt-2 mb-0"
                   >
                     Sign in
                   </h4>
-                  <div class="row mt-3">
+                  <!-- <div class="row mt-3">
                     <div class="col-2 text-center ms-auto">
                       <a class="btn btn-link px-3" href="javascript:;">
                         <i class="fa fa-facebook text-white text-lg"></i>
@@ -59,7 +52,7 @@ onMounted(() => {
                         <i class="fa fa-google text-white text-lg"></i>
                       </a>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="card-body">
@@ -88,19 +81,33 @@ onMounted(() => {
                     <MaterialButton
                       class="my-4 mb-2"
                       variant="gradient"
-                      color="success"
+                      color="info"
                       fullWidth
                       >Sign in</MaterialButton
                     >
                   </div>
-                  <p class="mt-4 text-sm text-center">
+                  <div class="my-auto">
+                    <div
+                      class="copyright text-center text-sm text-info text-lg-center"
+                    >
+                      © {{ new Date().getFullYear() }} by
+                      <a
+                        href="https://www.creative-tim.com"
+                        class="font-weight-bold text-info"
+                        target="_blank"
+                        >Stellar Tech</a
+                      >
+                      for a better web.
+                    </div>
+                  </div>
+                  <!-- <p class="mt-4 text-sm text-center">
                     Don't have an account?
                     <a
                       href="#"
                       class="text-success text-gradient font-weight-bold"
                       >Sign up</a
                     >
-                  </p>
+                  </p> -->
                 </form>
               </div>
             </div>
@@ -111,21 +118,20 @@ onMounted(() => {
         <div class="container">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-12 col-md-6 my-auto">
-              <div
+              <!-- <div
                 class="copyright text-center text-sm text-white text-lg-start"
               >
-                © {{ new Date().getFullYear() }}, made with
-                <i class="fa fa-heart" aria-hidden="true"></i> by
+                © {{ new Date().getFullYear() }} by
                 <a
                   href="https://www.creative-tim.com"
                   class="font-weight-bold text-white"
                   target="_blank"
-                  >Creative Tim</a
+                  >Stellar Tech</a
                 >
                 for a better web.
-              </div>
+              </div> -->
             </div>
-            <div class="col-12 col-md-6">
+            <!-- <div class="col-12 col-md-6">
               <ul
                 class="nav nav-footer justify-content-center justify-content-lg-end"
               >
@@ -162,7 +168,7 @@ onMounted(() => {
                   >
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
       </footer>
