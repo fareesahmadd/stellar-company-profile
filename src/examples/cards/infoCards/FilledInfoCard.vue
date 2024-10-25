@@ -134,9 +134,9 @@ const cardStyle = computed(() => {
 const imageStyle = computed(() => {
   switch (typeSize.value) {
     case "tablet":
-      return { width: "32px", height: "32px" };
+      return { width: "35px", height: "35px" };
     case "medium":
-      return { width: "40px", height: "40px" };
+      return { width: "32px", height: "32px" };
     case "mobile":
       return { width: "24px", height: "24px" };
     default:

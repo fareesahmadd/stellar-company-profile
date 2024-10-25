@@ -78,7 +78,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-1.png"
                 alt="Point of Sale"
                 class="mb-4 img-fluid"
               />
@@ -98,7 +98,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-2.png"
                 alt="Point of Sale"
                 class="mb-4 img-fluid"
               />
@@ -118,7 +118,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-3.png"
                 alt="Finance App"
                 class="mb-4 img-fluid"
               />
@@ -138,7 +138,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-4.png"
                 alt="Point of Sale"
                 class="mb-4 img-fluid"
               />
@@ -156,7 +156,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-5.png"
                 alt="Point of Sale"
                 class="mb-4 img-fluid"
               />
@@ -176,7 +176,7 @@
               class="card-body d-flex flex-column align-items-start justify-content-start"
             >
               <img
-                src="@/assets/img/inventory-management.svg"
+                src="@/assets/img/products/pos-6.png"
                 alt="Finance App"
                 class="mb-4 img-fluid"
               />
@@ -355,7 +355,7 @@
                 style="text-align: center"
               >
                 <img
-                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  src="@/assets/img/products/fm-1.png"
                   alt="Point of Sale"
                   class="mb-4 img-fluid"
                 />
@@ -379,7 +379,7 @@
                 style="text-align: center"
               >
                 <img
-                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  src="@/assets/img/products/bom-2.png"
                   alt="Point of Sale"
                   class="mb-4 img-fluid"
                 />
@@ -403,7 +403,7 @@
                 style="text-align: center"
               >
                 <img
-                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  src="@/assets/img/products/fm-3.png"
                   alt="Point of Sale"
                   class="mb-4 img-fluid"
                 />

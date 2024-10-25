@@ -21,7 +21,7 @@ import aboutStoryImage from "@/assets/img/about-story.svg";
       </div>
     </div>
     <!-- <div class="row align-items-center"> -->
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-lg-6 col-sm-12 d-flex">
         <div
           class="card blur shadow-lg my-sm-0 my-sm-0 mt-0 mb-5"

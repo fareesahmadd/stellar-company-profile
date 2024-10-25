@@ -192,7 +192,7 @@
                 style="text-align: center"
               >
                 <img
-                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  src="@/assets/img/products/bom-1.png"
                   alt="Point of Sale"
                   class="mb-4 img-fluid"
                 />
@@ -216,7 +216,7 @@
                 style="text-align: center"
               >
                 <img
-                  src="@/assets/img/product-bom-solution-image-3.svg"
+                  src="@/assets/img/products/bom-2.png"
                   alt="Point of Sale"
                   class="mb-4 img-fluid"
                 />

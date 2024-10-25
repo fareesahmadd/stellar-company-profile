@@ -4,7 +4,7 @@
       <div
         :class="
           typeSize === 'desktop' || typeSize === 'tablet'
-            ? 'col-md-6 mt-6'
+            ? 'col-md-5 mt-6'
             : 'col-12 mt-6'
         "
       >
@@ -12,6 +12,11 @@
           Top used POS that reach thousands of users.
         </h2>
       </div>
+      <div
+        :class="
+          typeSize === 'desktop' || typeSize === 'tablet' ? 'col-md-1' : ''
+        "
+      ></div>
       <div
         v-if="typeSize === 'desktop' || typeSize === 'tablet'"
         class="col-md-6"

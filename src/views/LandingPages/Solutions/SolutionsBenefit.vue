@@ -29,7 +29,13 @@ watch(
 
 <template>
   <section>
-    <div class="container-fluid">
+    <div
+      :class="
+        typeSize === 'desktop' || typeSize === 'tablet'
+          ? 'container'
+          : 'container-fluid'
+      "
+    >
       <div class="row">
         <div v-if="typeSize !== 'mobile'" class="col-md-6">
           <button
@@ -46,7 +52,7 @@ watch(
             Stellar products engineered to offer holistic solutions for every
             aspect of your business operations.
           </p>
-          <p class="font-weight-bold" style="margin-right: 150px">
+          <p class="font-weight-bold mt-5" style="margin-right: 150px">
             <i
               class="fa fa-check-circle text-info"
               style="margin-right: 10px"
@@ -76,7 +82,9 @@ watch(
             <div class="row mt-4">
               <div class="col-md-6 mb-4">
                 <div class="card" :style="cardStyle">
-                  <div class="card-body">
+                  <div
+                    class="card-body d-flex flex-column align-items-center text-center"
+                  >
                     <h3 class="card-title mt-3">100%</h3>
                     <p class="card-text">
                       ERP’s customization based on their business needs
@@ -86,7 +94,9 @@ watch(
               </div>
               <div class="col-md-6 mb-4">
                 <div class="card" :style="cardStyle">
-                  <div class="card-body">
+                  <div
+                    class="card-body d-flex flex-column align-items-center text-center"
+                  >
                     <h3 class="card-title mt-3">40%</h3>
                     <p class="card-text">Faster decision-making process</p>
                   </div>
@@ -94,7 +104,9 @@ watch(
               </div>
               <div class="col-md-6 mb-4">
                 <div class="card" :style="cardStyle">
-                  <div class="card-body">
+                  <div
+                    class="card-body d-flex flex-column align-items-center text-center"
+                  >
                     <h3 class="card-title mt-3">30%</h3>
                     <p class="card-text">
                       Less cost compared to similar solutions in the market.
@@ -104,7 +116,9 @@ watch(
               </div>
               <div class="col-md-6 mb-4">
                 <div class="card" :style="cardStyle">
-                  <div class="card-body">
+                  <div
+                    class="card-body d-flex flex-column align-items-center text-center"
+                  >
                     <h3 class="card-title mt-3">4.8/5</h3>
                     <p class="card-text">
                       By users, our commitment to premium quality.
