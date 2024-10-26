@@ -180,52 +180,6 @@ const accordionItems = [
           ></div>
         </div>
         <div class="col-md-6">
-          <div
-            :class="typeSize === 'mobile' ? 'mt-3' : 'container'"
-            v-if="currentRouteName !== 'products-fm'"
-          >
-            <h2 class="font-weight-bold">Reinvent Retail with energetic ERP</h2>
-            <p>
-              Elevate your brand to new heights ensuring your message reaches
-              its full potential and captivates your audience.
-            </p>
-            <div class="accordion" id="stellarFaq">
-              <div
-                class="accordion-item"
-                v-for="(item, index) in accordionItems"
-                :key="index"
-              >
-                <h2 class="accordion-header" id="headingOne">
-                  <button
-                    class="accordion-button border-bottom font-weight-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    :data-bs-target="'#collapseOne' + index"
-                    aria-expanded="false"
-                    :aria-controls="'collapseOne' + index"
-                    @click="item.isOpen = !item.isOpen"
-                  >
-                    {{ item.title }}
-                    <i
-                      class="collapse-open fa fa-chevron-down text-xs pt-1 position-absolute end-0 me-3"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                </h2>
-                <div
-                  :id="'collapseOne' + index"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#stellarFaq"
-                  :class="{ show: openAccordions[index] }"
-                >
-                  <div class="accordion-body text-muted">
-                    {{ item.content }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="container" v-if="currentRouteName === 'products-fm'">
             <div v-for="content in filteredContent" :key="content.id">
               <p class="font-weight-bold text-dark">

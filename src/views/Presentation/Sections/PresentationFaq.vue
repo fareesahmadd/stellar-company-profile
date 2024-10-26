@@ -109,7 +109,7 @@ const toggleAccordion = (item) => {
           <div class="accordion" id="stellarFaq">
             <div
               class="accordion-item"
-              v-for="(item, index) in accordionItems"
+              v-for="item in accordionItems"
               :key="item.id"
             >
               <h2 class="accordion-header" :id="'heading' + item.id">
