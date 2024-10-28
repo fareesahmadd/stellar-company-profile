@@ -21,7 +21,7 @@
       >
         <div
           class="card"
-          :style="`background-image: url(${vueMkHeader})`"
+          :style="`background-image: url(${vueMkHeader});background-size: cover; background-repeat: no-repeat;`"
           style="
             border-radius: 10px;
             overflow: hidden;
@@ -30,7 +30,12 @@
           "
         >
           <div class="card-title px-3 py-3">
-            <i class="fas fa-palette fa-2x text-white"></i>
+            <img
+              src="@/assets/img/icons/icon-paint-white.svg"
+              alt="icon-paint"
+              class="img-fluid"
+              :style="imageStyle"
+            />
           </div>
           <div class="card-body d-flex flex-column justify-content-end">
             <h5 class="card-title text-white mt-8">
@@ -47,7 +52,12 @@
         <div class="row">
           <div class="card" style="border-radius: 10px" :style="cardStyle">
             <div class="card-body">
-              <i class="fas fa-store fa-2x text-info"></i>
+              <img
+                src="@/assets/img/icons/icon-price-tag.svg"
+                alt="icon-paint"
+                class="img-fluid"
+                :style="imageStyle"
+              />
               <h5
                 :class="
                   typeSize === 'mobile'
@@ -72,7 +82,12 @@
         <div class="row mt-4">
           <div class="card" style="border-radius: 10px" :style="cardStyle">
             <div class="card-body">
-              <i class="fas fa-palette fa-2x text-info"></i>
+              <img
+                src="@/assets/img/icons/icon-cashier.svg"
+                alt="icon-paint"
+                class="img-fluid"
+                :style="imageStyle"
+              />
               <h5
                 :class="
                   typeSize === 'mobile'
@@ -99,7 +114,12 @@
         <div class="row">
           <div class="card" style="border-radius: 10px" :style="cardStyle">
             <div class="card-body">
-              <i class="fas fa-palette fa-2x text-info"></i>
+              <img
+                src="@/assets/img/icons/icon-world-wide.svg"
+                alt="icon-paint"
+                class="img-fluid"
+                :style="imageStyle"
+              />
               <h5
                 :class="
                   typeSize === 'mobile'
@@ -124,7 +144,12 @@
         <div class="row mt-4">
           <div class="card" style="border-radius: 10px" :style="cardStyle">
             <div class="card-body">
-              <i class="fas fa-palette fa-2x text-info"></i>
+              <img
+                src="@/assets/img/icons/icon-support.svg"
+                alt="icon-paint"
+                class="img-fluid"
+                :style="imageStyle"
+              />
               <h5
                 :class="
                   typeSize === 'mobile'
@@ -169,11 +194,16 @@
       </div>
       <div
         class="card"
-        :style="`background-image: url(${vueMkHeader})`"
+        :style="`background-image: url(${vueMkHeader});background-size: cover; background-repeat: no-repeat;`"
         style="border-radius: 10px; overflow: hidden; width: auto; height: 100%"
       >
         <div class="card-title px-3 py-3">
-          <i class="fas fa-palette fa-2x text-white"></i>
+          <img
+            src="@/assets/img/icons/icon-paint-white.svg"
+            alt="icon-paint"
+            class="img-fluid"
+            :style="imageStyle"
+          />
         </div>
         <div class="card-body d-flex flex-column justify-content-end">
           <h5 class="card-title text-white mt-8">Personalized Customization</h5>
@@ -189,11 +219,10 @@
             <div class="card-body">
               <img
                 src="@/assets/img/icons/icon-price-tag.svg"
-                alt="icon-price-tag"
+                alt="icon-paint"
                 class="img-fluid"
                 :style="imageStyle"
               />
-
               <h5
                 :class="
                   typeSize === 'mobile'
@@ -219,8 +248,8 @@
           <div class="card" style="border-radius: 10px" :style="cardStyle">
             <div class="card-body">
               <img
-                src="@/assets/img/icons/icon-support.svg"
-                alt="icon-support"
+                src="@/assets/img/icons/icon-world-wide.svg"
+                alt="icon-paint"
                 class="img-fluid"
                 :style="imageStyle"
               />
@@ -250,7 +279,7 @@
             <div class="card-body">
               <img
                 src="@/assets/img/icons/icon-cashier.svg"
-                alt="icon-cashier"
+                alt="icon-paint"
                 class="img-fluid"
                 :style="imageStyle"
               />
@@ -311,7 +340,7 @@
 </template>
 
 <script setup>
-import vueMkHeader from "@/assets/img/background-home.png";
+import vueMkHeader from "@/assets/img/products/item-5-header.png";
 import { ref, watch, computed } from "vue";
 import { useWindowsWidth } from "@/assets/js/useWindowsWidth";
 
