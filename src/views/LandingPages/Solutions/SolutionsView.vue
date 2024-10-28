@@ -24,6 +24,7 @@ import PresentationFaq from "../../Presentation/Sections/PresentationFaq.vue";
 import SolutionsUnique from "./SolutionsUnique.vue";
 import SolutionsIndustry from "./SolutionsIndustry.vue";
 import SolutionsBenefit from "./SolutionsBenefit.vue";
+import StatisticComponent from "./Components/StatisticComponent.vue";
 
 //images
 import imageHeader from "@/assets/img/background-header-light.svg";
@@ -83,6 +84,7 @@ onUnmounted(() => {
             >
           </div>
         </div>
+        <StatisticComponent class="container-fluid mt-6 mb-4" />
         <PresentationClient class="mt-0 mb-0" />
       </div>
     </div>
